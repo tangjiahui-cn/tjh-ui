@@ -1,0 +1,14 @@
+button {
+  background: transparent;
+  padding: 5px 10px;
+  cursor: pointer;
+  color: #5b5b5b;
+
+  &:hover {
+    background: whitesmoke;
+  }
+}
+
+.border {
+  border: 1px solid #e5e5e5;
+}
