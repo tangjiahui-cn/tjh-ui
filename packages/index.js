@@ -1,16 +1,17 @@
-import components from './components'
+import components from "./components";
 
 export const install = function (app) {
-  Object.keys(components).forEach(key => {
-    const component = components[key]
-    if (component.install) {
-      app.use(component)
-    }
-  })
+  Object.keys(components)
+    .forEach(key => {
+      const component = components[key];
+      if (component.install) {
+        app.use(component);
+      }
+    });
 
-  return app
-}
+  return app;
+};
 
 export default {
   install
-}
+};

@@ -7,7 +7,7 @@ import {defineComponent} from "vue";
 
 export default defineComponent({
   name: "TButton"
-})
+});
 </script>
 
 <style scoped lang="scss">

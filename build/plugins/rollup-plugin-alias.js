@@ -3,30 +3,32 @@
  *
  * tips: 解决@rollup/plugin-alias解析css中别名失败的问题
  */
-export default function alias(alias) {
+export default function alias (alias) {
   return {
-    name: 'alias',
-    transform (code, id) {
-      const lineReg = /import(.*)(('.*')|(".*"))/g
-      const pathReg = /('(.*)'|"(.*)")/
-      const lineArray = code.match(lineReg)
+    name: "alias",
+    transform (code) {
+      const lineReg = /import(.*)(('.*')|(".*"))/g;
+      const pathReg = /('(.*)'|"(.*)")/;
+      const lineArray = code.match(lineReg);
 
       if (lineArray) {
         lineArray.forEach(line => {
-          pathReg.test(line)
-          const importPath = RegExp.$2 || RegExp.$3
+          pathReg.test(line);
+          const importPath = RegExp.$2 || RegExp.$3;
           if (importPath) {
-            Object.keys(alias).forEach(key => {
-              if (importPath.startsWith(key)) {
-                const newLine = line.replace(key, alias[key]).replace(/\\/g, '/')
-                code = code.replace(line, newLine)
-              }
-            })
+            Object.keys(alias)
+              .forEach(key => {
+                if (importPath.startsWith(key)) {
+                  const newLine = line.replace(key, alias[key])
+                    .replace(/\\/g, "/");
+                  code = code.replace(line, newLine);
+                }
+              });
           }
-        })
+        });
       }
-      return code
-    },
-  }
+      return code;
+    }
+  };
 }
 
