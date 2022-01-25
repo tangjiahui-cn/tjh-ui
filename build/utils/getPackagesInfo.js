@@ -15,10 +15,8 @@ export default function getPackagesInfo () {
 
   files.forEach(file => {
     const filePath = path.join(packagesDir, file);
-    const isDirectoryAndNotExclude = fs.statSync(filePath)
-      .isDirectory() &&
-        !exclude.find(x => new RegExp(x)
-          .test(file));
+    const isDirectoryAndNotExclude = fs.statSync(filePath).isDirectory() &&
+        !exclude.find(x => new RegExp(x).test(file));
     if (isDirectoryAndNotExclude) {
       packageInfos.push({
         name: file,

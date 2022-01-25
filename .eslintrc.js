@@ -28,7 +28,7 @@ module.exports = {
     "space-before-function-paren": ["error", "always"],   // 函数名后必须接空格
     "no-multiple-empty-lines": ["error", {max: 1}],       // 最多一行空格
     "no-array-constructor": "error",                      // 禁止使用Array创建数组
-    "newline-per-chained-call": ["error", {"ignoreChainWithDepth": 1}], // 方法链每行只能调用1次
+    "newline-per-chained-call": ["error", {"ignoreChainWithDepth": 2}], // 方法链每行只能调用1次
     "new-cap": "error",                                   // 构造函数名首字母大写
     // "operator-linebreak": ["error", "before"],         // 运算符始终在前
     // "multiline-ternary": ["error", "always"],          // 三元运算符必须换行
