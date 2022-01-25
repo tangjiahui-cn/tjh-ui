@@ -11,5 +11,5 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-@import "../_styles/input.scss";
+@import "~/input.scss";
 </style>

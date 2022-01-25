@@ -1,0 +1,8 @@
+public
+script
+
+.editorconfig
+*.html
+*.json
+*.md
+*.lock
