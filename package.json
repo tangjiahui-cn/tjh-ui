@@ -19,9 +19,10 @@
     "PublishNpm": "yarn build && sh script/updateVersion.sh && npm publish --registry=https://registry.npmjs.org",
     "unPublishNpm": "npm unpublish tjh-ui --force --registry=https://registry.npmjs.org",
     "reset": "sh script/updateVersion.sh 0.0.0 && yarn unPublish",
-    "eslint": "eslint --fix --ext .js,.vue ./packages ./build ./*.*.js ./*.js ./.*.js src",
-    "stylelint": "stylelint packages/**/*.{vue,css,sass,scss}",
-    "prettier": "prettier --write ."
+    "eslint:fix": "eslint --fix --ext .js,.vue ./packages ./build ./*.*.js ./*.js ./.*.js src",
+    "stylelint:check": "stylelint packages/**/*.{vue,css,sass,scss}",
+    "prettier:fix": "prettier --write .",
+    "lint-staged": "lint-staged"
   },
   "dependencies": {
     "vue": "^3.2.25"
@@ -37,6 +38,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^7.1.0",
     "husky": "^7.0.4",
+    "lint-staged": "^12.3.1",
     "postcss-html": "^1.3.0",
     "prettier": "^2.5.1",
     "rimraf": "^3.0.2",
@@ -50,5 +52,13 @@
     "stylelint-config-standard-scss": "^3.0.0",
     "stylelint-scss": "^4.1.0",
     "vite": "^2.7.2"
+  },
+  "lint-staged": {
+    "*.{js, vue, css, scss}": [
+      "eslint --fix",
+      "stylelint",
+      "prettier --write",
+      "git add"
+    ]
   }
 }

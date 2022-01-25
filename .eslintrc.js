@@ -53,6 +53,7 @@ module.exports = {
     "no-var": "error", // 禁止使用var
     "no-extra-semi": "error", // 禁止多余的分号
     "no-extra-boolean-cast": "error", // 禁止不必要的布尔转换
-    "no-console": "error" // 禁用console
+    "no-console": "error", // 禁用console
+    "spaced-comment": ["error", "always"] // 注释前要有空格
   }
 };
