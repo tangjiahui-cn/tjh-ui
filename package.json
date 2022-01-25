@@ -22,7 +22,8 @@
     "eslint:fix": "eslint --fix --ext .js,.vue ./packages ./build ./*.*.js ./*.js ./.*.js src",
     "stylelint:check": "stylelint packages/**/*.{vue,css,sass,scss}",
     "prettier:fix": "prettier --write .",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "husky:create-command": "husky add .husky/pre-commit 'your command'"
   },
   "dependencies": {
     "vue": "^3.2.25"

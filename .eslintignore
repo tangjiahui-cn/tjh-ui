@@ -4,3 +4,4 @@ lib
 script
 !.stylelintrc.js
 !.prettierrc.js
+*.md
