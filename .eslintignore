@@ -3,4 +3,4 @@ node_modules
 lib
 script
 !.stylelintrc.js
-!.prettier.js
+!.prettierrc.js

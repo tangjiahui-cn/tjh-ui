@@ -12,5 +12,4 @@ export default defineComponent({
 
 <style scoped lang="scss">
 @import "~/button.scss";
-
 </style>

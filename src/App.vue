@@ -3,5 +3,4 @@
   <t-input />
 </template>
 
-<style>
-</style>
+<style></style>

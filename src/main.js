@@ -1,4 +1,4 @@
-import { createApp } from "vue";
+import {createApp} from "vue";
 import App from "./App.vue";
 import tjhUi from "packages/index";
 // import tjhUi from 'tjh-ui'
@@ -6,6 +6,4 @@ import tjhUi from "packages/index";
 
 const app = createApp(App);
 
-app
-  .use(tjhUi)
-  .mount("#app");
+app.use(tjhUi).mount("#app");

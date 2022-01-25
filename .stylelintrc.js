@@ -7,6 +7,6 @@ module.exports = {
   "rules": {
     "scss/at-import-partial-extension": null,     // 导入扩展。（允许.scss）
     "color-hex-case": "lower",                    // 颜色字符串为小写
-    "color-hex-length": "long",                   // 禁止16进制颜色字符串简写
+    "color-hex-length": "long"                   // 禁止16进制颜色字符串简写
   }
 };

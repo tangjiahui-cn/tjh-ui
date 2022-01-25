@@ -21,7 +21,7 @@
     "reset": "sh script/updateVersion.sh 0.0.0 && yarn unPublish",
     "eslint": "eslint --fix --ext .js,.vue ./packages ./build ./*.*.js ./*.js ./.*.js src",
     "stylelint": "stylelint packages/**/*.{vue,css,sass,scss}",
-    "prettier": "prettier --check ."
+    "prettier": "prettier --write ."
   },
   "dependencies": {
     "vue": "^3.2.25"

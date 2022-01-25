@@ -1,8 +1,14 @@
-public
-script
+/lib/
+/public/
+/script/
+
 
 .editorconfig
 *.html
 *.json
 *.md
 *.lock
+
+/.*.js
+/*.*.js
+/.*

@@ -1,5 +1,5 @@
 <template>
-  <input value="t-input"/>
+  <input value="t-input" />
 </template>
 
 <script>
