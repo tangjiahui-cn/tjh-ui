@@ -1,3 +1,4 @@
+// https://eslint.bootcss.com/docs/rules/
 module.exports = {
   "env": {
     "browser": true,
@@ -25,7 +26,7 @@ module.exports = {
     "semi-style": ["error", "last"],                      // 强制分号在末尾
     "space-infix-ops": ["error", {"int32Hint": false}],   // 强制操作符周围有空格true: a|0。false，a | 0
     "space-in-parens": ["error", "never"],                // 强制圆括号内没有空格
-    "space-before-function-paren": ["error", "always"],   // 函数名后必须接空格
+    "space-before-function-paren": ["error", "never"],   // 函数名后必须接空格
     "no-multiple-empty-lines": ["error", {max: 1}],       // 最多一行空格
     "no-array-constructor": "error",                      // 禁止使用Array创建数组
     "newline-per-chained-call": ["error", {"ignoreChainWithDepth": 2}], // 方法链每行只能调用1次
