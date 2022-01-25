@@ -1,6 +1,6 @@
 import components from "./components";
 
-export const install = function (app) {
+export function install(app) {
   Object.keys(components).forEach((key) => {
     const component = components[key];
     if (component.install) {
@@ -9,7 +9,7 @@ export const install = function (app) {
   });
 
   return app;
-};
+}
 
 export default {
   install

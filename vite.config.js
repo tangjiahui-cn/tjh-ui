@@ -1,4 +1,4 @@
-import { defineConfig } from "vite";
+import {defineConfig} from "vite";
 import vue from "@vitejs/plugin-vue";
 import alias from "./build/alias";
 
@@ -14,7 +14,5 @@ export default defineConfig({
     alias,
     extensions: [".mjs", ".js", ".ts", ".jsx", ".tsx", ".json"]
   },
-  plugins: [
-    vue()
-  ]
+  plugins: [vue()]
 });
