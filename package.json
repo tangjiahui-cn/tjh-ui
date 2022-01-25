@@ -55,7 +55,7 @@
     "vite": "^2.7.2"
   },
   "lint-staged": {
-    "*.{js, vue, css, scss}": [
+    "{build,packages,src}/*.{js, vue, css, scss}": [
       "eslint --fix",
       "stylelint",
       "prettier --write",
