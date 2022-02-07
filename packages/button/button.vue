@@ -1,17 +1,19 @@
 <template>
-  <button class="border">{{ value }}</button>
+  <button class="border">
+    <slot>
+      {{ value }}
+    </slot>
+  </button>
 </template>
 
 <script>
 import {defineComponent} from "vue";
+import props from "props/button";
 
 export default defineComponent({
   name: "TButton",
-  props: {
-    value: {
-      type: String,
-      default: "按 钮"
-    }
+  props,
+  setup() {
   }
 });
 </script>

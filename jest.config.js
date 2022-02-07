@@ -1,3 +1,5 @@
+const {jestAlias} = require("./build/alias");
+
 module.exports = {
   testEnvironment: "jsdom",
   moduleFileExtensions: [
@@ -5,6 +7,7 @@ module.exports = {
     "json",
     "vue"
   ],
+  moduleNameMapper: jestAlias,
   transform: {
     "^.+\\.js$": "babel-jest",
     "^.+\\.vue$": "@vue/vue3-jest",

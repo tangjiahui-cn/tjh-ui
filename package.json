@@ -13,7 +13,8 @@
   "license": "ISC",
   "scripts": {
     "dev": "vite",
-    "test": "jest --coverage",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
     "build": "rimraf lib && rollup -c build/rollup.lib.js",
     "Publish": "yarn build && sh script/updateVersion.sh && npm publish --registry=http://localhost:4873",
     "unPublish": "npm unpublish tjh-ui --force --registry=http://localhost:4873",

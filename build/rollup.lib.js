@@ -1,4 +1,3 @@
-import alias from "./alias";
 import {name} from "../package.json";
 import json from "@rollup/plugin-json";
 import babel from "@rollup/plugin-babel";
@@ -6,8 +5,9 @@ import vuePlugin from "rollup-plugin-vue";
 import postcss from "rollup-plugin-postcss";
 import {terser} from "rollup-plugin-terser";
 import resolve from "@rollup/plugin-node-resolve";
-import getPackagesInfo from "./utils/getPackagesInfo";
 import aliasResolve from "./plugins/rollup-plugin-alias";
+const alias = require("./alias");
+const getPackagesInfo = require("./utils/getPackagesInfo");
 
 const packagesInfo = [{name: ""}, ...getPackagesInfo()];
 

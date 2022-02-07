@@ -18,7 +18,8 @@ export default function alias(alias) {
           if (importPath) {
             Object.keys(alias).forEach((key) => {
               if (importPath.startsWith(key)) {
-                const newLine = line.replace(key, alias[key]);
+                const newPath = importPath.replace(key, alias[key]);
+                const newLine = line.replace(importPath, newPath);
                 code = code.replace(line, newLine);
               }
             });
