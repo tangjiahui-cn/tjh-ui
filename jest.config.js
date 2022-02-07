@@ -2,14 +2,11 @@ const {jestAlias} = require("./build/alias");
 
 module.exports = {
   testEnvironment: "jsdom",
-  moduleFileExtensions: [
-    "js",
-    "json",
-    "vue"
-  ],
+  moduleFileExtensions: ["js", "json", "vue", "ts", "tsx"],
   moduleNameMapper: jestAlias,
   transform: {
-    "^.+\\.js$": "babel-jest",
+    "^.+\\.jsx?$": "babel-jest",
+    "^.+\\.tsx?$": "ts-jest",
     "^.+\\.vue$": "@vue/vue3-jest",
     ".+\\.(css|scss|png|jpg|svg)$": "jest-transform-stub"
   },
@@ -22,6 +19,11 @@ module.exports = {
       functions: 80,
       lines: 90,
       statements: 80
+    }
+  },
+  globals: {
+    "ts-jest": {
+      babelConfig: true
     }
   }
 };

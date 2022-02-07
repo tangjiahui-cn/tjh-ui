@@ -4,7 +4,9 @@ export {Button};
 import Input from "./input/index";
 export {Input};
 
-export default {
+const components: any = {
   Button,
   Input
 };
+
+export default components
