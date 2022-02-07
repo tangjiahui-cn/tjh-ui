@@ -11,13 +11,13 @@ import aliasResolve from "./plugins/rollup-plugin-alias";
 
 const packagesInfo = [{name: ""}, ...getPackagesInfo()];
 
-const getInput = (packageName) =>
+export const getInput = (packageName) =>
   packageName ? `packages/${packageName}/index.js` : "packages/index.js";
 
-const getName = (packageName, format) =>
-  packageName ? name + `_${format}_${packageName}` : name;
+export const getName = (packageName, format) =>
+  packageName ? `${name}_${format}_${packageName}` : name;
 
-const getFile = (packageName, format) =>
+export const getFile = (packageName, format) =>
   packageName
     ? `lib/${packageName}/index.${format}.js`
     : `lib/index.${format}.js`;

@@ -5,3 +5,5 @@ script
 !.stylelintrc.js
 !.prettierrc.js
 *.md
+
+**/__tests__/*

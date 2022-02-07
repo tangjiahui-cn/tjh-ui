@@ -18,9 +18,7 @@ export default function alias(alias) {
           if (importPath) {
             Object.keys(alias).forEach((key) => {
               if (importPath.startsWith(key)) {
-                const newLine = line
-                  .replace(key, alias[key])
-                  .replace(/\\/g, "/");
+                const newLine = line.replace(key, alias[key]);
                 code = code.replace(line, newLine);
               }
             });

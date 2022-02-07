@@ -1,5 +1,7 @@
 # 一个vue3组件库
 
+#### 当前阶段：开发阶段
+
 ```text
 技术栈
     
@@ -7,11 +9,8 @@
 (2) vue3
 (3) scss
 (4) eslint
-
-TODO:
-(1) husky
-(2) flow
-(3) jest
-(4) prettier
-(5) stylelint
+(5) husky
+(6) prettier
+(7) stylelint
+(8) jest
 ```

@@ -1,12 +1,18 @@
 <template>
-  <button class="border">你好</button>
+  <button class="border">{{ value }}</button>
 </template>
 
 <script>
 import {defineComponent} from "vue";
 
 export default defineComponent({
-  name: "TButton"
+  name: "TButton",
+  props: {
+    value: {
+      type: String,
+      default: "按 钮"
+    }
+  }
 });
 </script>
 

@@ -1,5 +1,6 @@
 import * as path from "path";
 
 export default function (importPath) {
-  return path.resolve(process.cwd(), importPath);
+  const rootPath = process.cwd().replace(/\\/g, "/");
+  return path.resolve(rootPath, importPath);
 }
