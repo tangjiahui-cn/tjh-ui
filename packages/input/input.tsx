@@ -1,10 +1,9 @@
-import {createVNode, defineComponent} from "vue";
+import {defineComponent} from "vue";
 import "~/input.scss";
-const h = createVNode;
 
 export default defineComponent({
   name: "TInput",
-  setup: () => {
+  setup () {
     return () => {
       return <input value="t-input"/>
     }
