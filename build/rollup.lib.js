@@ -30,7 +30,10 @@ export default packagesInfo.map(({name: packageName}) => {
     output: ["umd", "es"].map((format) => ({
       format,
       name: getName(packageName, format),
-      file: getFile(packageName, format)
+      file: getFile(packageName, format),
+      globals: {
+        vue: "vue"
+      }
     })),
     plugins: [
       typescript({
@@ -51,6 +54,9 @@ export default packagesInfo.map(({name: packageName}) => {
         extensions: [".css", ".less", ".scss"]
       }),
       terser()
+    ],
+    external: [
+      "vue"
     ]
   };
 });

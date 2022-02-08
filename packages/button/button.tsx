@@ -1,5 +1,6 @@
-import {defineComponent} from "vue";
+import {createVNode, defineComponent} from "vue";
 import "~/button.scss";
+const h = createVNode;
 
 export default defineComponent({
   name: "TButton",
@@ -13,7 +14,7 @@ export default defineComponent({
       default: "按 钮"
     }
   },
-  setup(props, { slots }) {
+  setup: (props, { slots }) => {
     return () => {
       return <button class="border">
         {slots.default ? slots.default() : props.value}
