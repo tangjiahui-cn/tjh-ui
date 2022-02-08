@@ -1,4 +1,4 @@
-import Input from "./input";
+import Input from "./input.vue";
 import type {App} from "vue";
 
 Input.install = function (app: App): void {

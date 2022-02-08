@@ -13,5 +13,5 @@
 (6) prettier
 (7) stylelint
 (8) jest
-(9) typescript + tsx
+(9) typescript
 ```

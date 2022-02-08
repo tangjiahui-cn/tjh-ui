@@ -1,5 +1,13 @@
+<template>
+  <button class="border">
+    <slot>
+      {{ value }}
+    </slot>
+  </button>
+</template>
+
+<script>
 import {defineComponent} from "vue";
-import "~/button.scss";
 
 export default defineComponent({
   name: "TButton",
@@ -13,11 +21,10 @@ export default defineComponent({
       default: "按 钮"
     }
   },
-  setup (props, { slots }) {
-    return () => {
-      return <button class="border">
-        {slots.default ? slots.default() : props.value}
-      </button>
-    }
-  }
+  setup() {}
 });
+</script>
+
+<style scoped lang="scss">
+@import "~/button.scss";
+</style>

@@ -4,7 +4,7 @@ module.exports = {
     browser: true,
     node: true
   },
-  extends: ["eslint:recommended", "plugin:vue/essential", "prettier"],
+  extends: ["eslint:recommended", "plugin:vue/essential", "@vue/typescript", "prettier"],
   parserOptions: {
     ecmaVersion: 6,
     sourceType: "module"
