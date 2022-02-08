@@ -1,3 +1,5 @@
+import rollupConfig from "../rollup.lib";
+let checked = false;
 /*
  * 解决"isCE"的bug
  *
@@ -9,6 +11,7 @@ export default function fixCE() {
     transform(code, path) {
       let _code = code;
       if (path.endsWith("tsx")) {
+        check();
         _code = addH(_code);
         _code = setupToArray(_code);
       }
@@ -17,6 +20,27 @@ export default function fixCE() {
   };
 }
 
+// 校验 是否启用了 external:["vue"]。如果无，则报错。
+function check() {
+  if (!checked) {
+    if (Array.isArray(rollupConfig)) {
+      for (let i = 0; i < rollupConfig.length; i++) {
+        const {external = []} = rollupConfig[i];
+        if (!external.includes("vue")) {
+          throw new Error("no 'vue' in external.  like: \"external: [\"vue\"]\"");
+        }
+      }
+    } else {
+      const {external = []} = rollupConfig;
+      if (!external.includes("vue")) {
+        throw new Error("no 'vue' in external.  like: \"external: [\"vue\"]\"");
+      }
+    }
+    checked = true;
+  }
+}
+
+// 开头增加 const h = createVNode;
 function addH(code) {
   let _code = code;
   const isCreateVNode = /import {(.*)createVNode(.*)} from ['"]vue['"]/.test(code);
@@ -27,6 +51,7 @@ function addH(code) {
   return _code.replace(importReg, "$1\nconst h = createVNode;");
 }
 
+// 将setup函数转为箭头函数
 function setupToArray(code) {
   let _code = code;
   const hReg = /const h = createVNode;/;
