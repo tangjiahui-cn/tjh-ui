@@ -1,4 +1,4 @@
-const {jestAlias} = require("./build/alias");
+const {jestAlias} = require("./build/alias")
 
 module.exports = {
   testEnvironment: "jsdom",
@@ -26,4 +26,4 @@ module.exports = {
       babelConfig: true
     }
   }
-};
+}

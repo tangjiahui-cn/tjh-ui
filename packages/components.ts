@@ -1,12 +1,12 @@
-import Button from "./button/index";
-export {Button};
+import Button from "./button/index"
+export {Button}
 
-import Input from "./input/index";
-export {Input};
+import Input from "./input/index"
+export {Input}
 
 const components: any = {
   Button,
   Input
-};
+}
 
-export default components;
+export default components

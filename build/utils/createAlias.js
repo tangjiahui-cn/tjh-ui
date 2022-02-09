@@ -1,8 +1,8 @@
-const rootResolve = require("./rootResolve");
+const rootResolve = require("./rootResolve")
 
 module.exports = function (nameMap) {
   return Object.keys(nameMap).reduce((alias, key) => {
-    alias[key] = rootResolve(nameMap[key]);
-    return alias;
-  }, {});
-};
+    alias[key] = rootResolve(nameMap[key])
+    return alias
+  }, {})
+}

@@ -10,10 +10,10 @@ module.exports = {
   proseWrap: "preserve",
   quoteProps: "as-needed",
   requirePragma: false,
-  semi: true,
+  semi: false,
   singleQuote: false,
   tabWidth: 2,
   trailingComma: "none",
   useTabs: false,
   vueIndentScriptAndStyle: false
-};
+}

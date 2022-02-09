@@ -4,7 +4,12 @@ module.exports = {
     browser: true,
     node: true
   },
-  extends: ["eslint:recommended", "plugin:vue/essential", "@vue/typescript", "prettier"],
+  extends: [
+    "eslint:recommended",
+    "plugin:vue/essential",
+    "@vue/typescript",
+    "prettier"
+  ],
   parserOptions: {
     ecmaVersion: 6,
     sourceType: "module"
@@ -13,20 +18,27 @@ module.exports = {
   rules: {
     "vue/no-multiple-template-root": 0, // vue中根元素允许不止一个
     "no-debugger": ["error"], // 不允许debugger
-    "indent": ["error", 2], // 缩进2空格
-    "quotes": ["error", "double", {
-      "avoidEscape": true,
-      "allowTemplateLiterals": true
-    }], // 强制双引号
-    "semi": ["error", "always"], // 强制语句末尾加分号
+    indent: ["error", 2], // 缩进2空格
+    quotes: [
+      "error",
+      "double",
+      {
+        avoidEscape: true,
+        allowTemplateLiterals: true
+      }
+    ], // 强制双引号
+    semi: ["error", "never"], // 强制语句末尾加分号
     "semi-style": ["error", "last"], // 强制分号在末尾
     "space-infix-ops": ["error", {int32Hint: false}], // 强制操作符周围有空格true: a|0。false，a | 0
     "space-in-parens": ["error", "never"], // 强制圆括号内没有空格
-    "space-before-function-paren": ["error", {
-      anonymous: "always",
-      named: "never",
-      asyncArrow: "always"
-    }], // 函数名后必须接空格
+    "space-before-function-paren": [
+      "error",
+      {
+        anonymous: "always",
+        named: "never",
+        asyncArrow: "always"
+      }
+    ], // 函数名后必须接空格
     "no-multiple-empty-lines": ["error", {max: 1}], // 最多一行空格
     "no-array-constructor": "error", // 禁止使用Array创建数组
     "newline-per-chained-call": ["error", {ignoreChainWithDepth: 2}], // 方法链每行只能调用2次
@@ -56,4 +68,4 @@ module.exports = {
     "no-console": "error", // 禁用console
     "spaced-comment": ["error", "always"] // 注释前要有空格
   }
-};
+}

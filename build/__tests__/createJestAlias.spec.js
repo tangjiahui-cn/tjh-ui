@@ -1,9 +1,9 @@
-const createJestAlias = require("../utils/createJestAlias");
+const createJestAlias = require("../utils/createJestAlias")
 
 const nameMap = {
   "~": "packages/_styles",
-  "packages": "packages",
-  "props": "packages/_props"
+  packages: "packages",
+  props: "packages/_props"
 }
 
 const expectAlias = {
@@ -15,5 +15,5 @@ const expectAlias = {
 test("nameMap => alias", () => {
   const result = JSON.stringify(createJestAlias(nameMap))
   const expectResult = JSON.stringify(expectAlias)
-  expect(result).toBe(expectResult);
+  expect(result).toBe(expectResult)
 })

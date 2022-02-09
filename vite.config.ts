@@ -1,7 +1,7 @@
-import {defineConfig} from "vite";
-import vue from "@vitejs/plugin-vue";
-import vueJsx from "@vitejs/plugin-vue-jsx";
-const alias = require("./build/alias");
+import {defineConfig} from "vite"
+import vue from "@vitejs/plugin-vue"
+import vueJsx from "@vitejs/plugin-vue-jsx"
+const alias = require("./build/alias")
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -15,8 +15,5 @@ export default defineConfig({
     alias,
     extensions: [".mjs", ".js", ".ts", ".jsx", ".tsx", ".json"]
   },
-  plugins: [
-    vue(),
-    vueJsx()
-  ]
-});
+  plugins: [vue(), vueJsx()]
+})
