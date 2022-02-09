@@ -15,7 +15,7 @@ const getPackagesInfo = require("./utils/getPackagesInfo")
 const packagesInfo = [{name: ""}, ...getPackagesInfo()]
 
 export const getInput = (packageName) =>
-  packageName ? `packages/${packageName}/index.ts` : "packages/index.ts"
+  packageName ? `packages/${packageName}/index.js` : "packages/index.js"
 
 export const getName = (packageName, format) =>
   packageName ? `${name}_${format}_${packageName}` : name
