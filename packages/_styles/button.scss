@@ -1,14 +1,220 @@
-button {
-  background: transparent;
-  padding: 5px 10px;
-  cursor: pointer;
-  color: #5b5b5b;
+@import "./common/var.scss";
+$delay: 0.4s;
 
-  &:hover {
-    background: whitesmoke;
+@mixin primary ($isDanger: false, $disabled: false) {
+  color: white;
+  background: $primary;
+  border: 1px solid $primaryHover;
+
+  @if ($isDanger) {
+    background: $danger;
+    border: 1px solid $dangerHover;
+
+    @if ($disabled) {
+      background: $dangerDisabled;
+      border-color: $dangerDisabled;
+      cursor: not-allowed;
+    }
+  } @else {
+    @if ($disabled) {
+      background: $primaryDisabled;
+      border-color: $primaryDisabled;
+      cursor: not-allowed;
+    }
+  }
+
+  @if($disabled == false) {
+    &:hover,&:focus {
+      background: $primaryHover;
+      @if ($isDanger) {
+        background: $dangerHover;
+      }
+    }
+
+    &:active {
+      background: $primaryActive;
+      @if ($isDanger) {
+        background: $dangerActive;
+      }
+    }
   }
 }
 
-.border {
-  border: 1px solid #e5e5e5;
+@mixin default ($isDanger: false, $disabled: false) {
+  border: 1px solid $border;
+
+  @if ($isDanger) {
+    color: $danger;
+    border-color: $danger;
+
+    @if ($disabled) {
+      border-color: $dangerDisabled;
+      color: $dangerDisabled;
+      cursor: not-allowed;
+    }
+  } @else {
+    @if ($disabled) {
+      border-color: $primaryDisabled;
+      color: $primaryDisabled;
+      cursor: not-allowed;
+    }
+  }
+
+  @if($disabled == false) {
+    &:hover,&:focus {
+      border-color: $primaryHover;
+      color: $primaryHover;
+      @if ($isDanger) {
+        border-color: $dangerHover;
+        color: $dangerHover;
+      }
+    }
+
+    &:active {
+      border-color: $primaryActive;
+      color: $primaryActive;
+      @if ($isDanger) {
+        border-color: $dangerActive;
+        color: $dangerActive;
+      }
+    }
+  }
+}
+
+@mixin dashed ($isDanger: false, $disabled: false) {
+  @include default($isDanger, $disabled);
+  border-style: dashed;
+}
+
+@mixin text ($isDanger: false, $disabled: false) {
+  border: none;
+
+  @if ($isDanger) {
+    color: $danger;
+
+    @if ($disabled) {
+      color: $dangerDisabled;
+      cursor: not-allowed;
+    }
+  } @else {
+    @if ($disabled) {
+      color: $colorDisabled;
+      cursor: not-allowed;
+    }
+  }
+
+  @if($disabled == false) {
+    &:hover,&:focus {
+      color: $colorHover;
+      @if ($isDanger) {
+        color: $dangerHover;
+      }
+    }
+
+    &:active {
+      color: $colorActive;
+      @if ($isDanger) {
+        color: $dangerActive;
+      }
+    }
+  }
+}
+
+.t-button {
+  color: $color;
+  background: white;
+  cursor: pointer;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border-radius: 2px;
+  font-size: 14px;
+  transition: background $delay, border $delay, color $delay;
+
+  &:active, &:focus {
+    outline: none;
+  }
+
+  &-type {
+    &-primary {
+      @include primary(false, false);
+
+      &-disabled {
+        @include primary(false, true);
+      }
+
+      &-danger {
+        @include primary(true, false);
+
+        &-disabled {
+          @include primary(true, true);
+        }
+      }
+    }
+
+    &-default {
+      @include default(false, false);
+
+      &-disabled {
+        @include default(false, true);
+      }
+
+      &-danger {
+        @include default(true, false);
+
+        &-disabled {
+          @include default(true, true);
+        }
+      }
+    }
+
+    &-dashed {
+      @include dashed(false, false);
+
+      &-disabled {
+        @include dashed(false, true);
+      }
+
+      &-danger {
+        @include dashed(true, false);
+
+        &-disabled {
+          @include dashed(true, true);
+        }
+      }
+    }
+
+    &-text {
+      @include text(false, false);
+
+      &-disabled {
+        @include text(false, true);
+      }
+
+      &-danger {
+        @include text(true, false);
+
+        &-disabled {
+          @include text(true, true);
+        }
+      }
+    }
+  }
+
+  &-size {
+    &-large {
+      font-size: 16px;
+      line-height: 24px;
+      padding: 8px 15px;
+    }
+
+    &-default {
+      line-height: 24px;
+      padding: 4px 10px;
+    }
+
+    &-small {
+      line-height: 18px;
+      padding: 2px 10px;
+    }
+  }
 }

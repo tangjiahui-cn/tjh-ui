@@ -1,7 +1,12 @@
 <template>
-  <button class="border">
+  <button
+    :class="[
+      't-button',
+      `t-button-size-${size}`,
+      `t-button-type-${type}${danger ? '-danger' : ''}${disabled ? '-disabled' : ''}`
+    ]"
+  >
     <slot>
-      {{ value }}
       {{ value }}
     </slot>
   </button>
@@ -9,19 +14,12 @@
 
 <script>
 import {defineComponent} from "vue"
+import {props, emits} from "../_types/button"
 
 export default defineComponent({
   name: "TButton",
-  props: {
-    type: {
-      type: String,
-      default: "default"
-    },
-    value: {
-      type: String,
-      default: "按 钮"
-    }
-  },
+  props,
+  emits,
   setup() {
   }
 })
