@@ -13,8 +13,7 @@ import { buttonProps } from "../_types/button"
 export default defineComponent({
   name: "TButton",
   props: buttonProps,
-  setup(props) {
-  }
+  setup() {}
 })
 </script>
 
