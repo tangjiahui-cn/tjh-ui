@@ -1,4 +1,4 @@
-import Button from "../button"
+import Button from "../button.vue"
 import {mount} from "@vue/test-utils"
 
 test("test button", () => {
@@ -7,6 +7,5 @@ test("test button", () => {
       value: "button"
     }
   })
-
   expect(wrapper.text()).toContain("button")
 })

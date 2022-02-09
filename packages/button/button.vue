@@ -6,25 +6,18 @@
   </button>
 </template>
 
-<script>
+<script lang="ts">
 import {defineComponent} from "vue"
+import { buttonProps } from "../_types/button"
 
 export default defineComponent({
   name: "TButton",
-  props: {
-    type: {
-      type: String,
-      default: "default"
-    },
-    value: {
-      type: String,
-      default: "按 钮"
-    }
-  },
-  setup() {}
+  props: buttonProps,
+  setup(props) {
+  }
 })
 </script>
 
 <style scoped lang="scss">
-@import "~/button.scss";
+@import "../_styles/button.scss";
 </style>
