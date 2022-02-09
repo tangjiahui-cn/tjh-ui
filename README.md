@@ -11,7 +11,6 @@
 (4) eslint
 (5) husky
 (6) prettier
-(7) stylelint
-(8) jest
-(9) typescript
+(7) jest
+(8) typescript
 ```
