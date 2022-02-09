@@ -7,7 +7,7 @@ import postcss from "rollup-plugin-postcss";
 import {terser} from "rollup-plugin-terser";
 import resolve from "@rollup/plugin-node-resolve";
 import aliasResolve from "./plugins/rollup-plugin-alias";
-import fixCE from "./plugins/rollup-plugins-vue3-fixCE";
+// import fixCE from "./plugins/rollup-plugins-vue3-fixCE";
 import typescript from "rollup-plugin-typescript2";
 const alias = require("./alias");
 const getPackagesInfo = require("./utils/getPackagesInfo");
@@ -42,7 +42,7 @@ export default packagesInfo.map(({name: packageName}) => {
       }),
       resolve(),
       aliasResolve(alias),
-      fixCE(),
+      // fixCE(),
       json(),
       vuePlugin(),
       babel({
@@ -57,8 +57,6 @@ export default packagesInfo.map(({name: packageName}) => {
       }),
       terser()
     ],
-    external: [
-      "vue"
-    ]
+    external: ["vue"]
   };
 });
