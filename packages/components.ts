@@ -9,4 +9,4 @@ const components: any = {
   Input
 };
 
-export default components
+export default components;

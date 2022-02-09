@@ -21,7 +21,7 @@
     "PublishNpm": "yarn build && sh script/updateVersion.sh && npm publish --registry=https://registry.npmjs.org",
     "unPublishNpm": "npm unpublish tjh-ui --force --registry=https://registry.npmjs.org",
     "reset": "sh script/updateVersion.sh 0.0.0 && yarn unPublish",
-    "eslint:fix": "eslint --fix --ext .js,.vue ./packages ./build ./*.*.js ./*.js ./.*.js src",
+    "eslint:fix": "eslint --fix --ext .ts,.js,.vue ./packages ./build ./*.*.js ./*.js ./.*.js src",
     "stylelint:check": "stylelint packages/**/*.{vue,css,sass,scss}",
     "prettier:fix": "prettier --write .",
     "lint-staged": "lint-staged",
