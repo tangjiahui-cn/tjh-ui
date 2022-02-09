@@ -1,7 +1,6 @@
 import components from "./components"
-import type {App} from "vue"
 
-export function install(app: App): void {
+export function install(app) {
   Object.keys(components).forEach((key) => {
     const component = components[key]
     if (component.install) {

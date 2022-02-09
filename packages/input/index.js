@@ -1,7 +1,6 @@
 import Input from "./input.vue"
-import type {App} from "vue"
 
-Input.install = function (app: App): void {
+Input.install = function (app) {
   app.component(Input.name, Input)
 }
 

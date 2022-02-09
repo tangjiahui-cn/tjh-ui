@@ -4,7 +4,7 @@ export {Button}
 import Input from "./input/index"
 export {Input}
 
-const components: any = {
+const components = {
   Button,
   Input
 }

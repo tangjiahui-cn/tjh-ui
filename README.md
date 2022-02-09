@@ -12,5 +12,4 @@
 (5) husky
 (6) prettier
 (7) jest
-(8) typescript
 ```
