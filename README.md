@@ -1,7 +1,17 @@
 # 一个vue3组件库
 
+<br/>
+
 #### 当前阶段：开发阶段
 
+####1、如何运行
+```text
+  git clone  https://github.com/tangjiahui-cn/tjh-ui.git 
+  
+  yarn
+```
+
+####2、技术栈
 ```text
 技术栈
     

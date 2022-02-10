@@ -1,4 +1,5 @@
 @import "./common/var.scss";
+
 $delay: 0.4s;
 
 @mixin primary ($isDanger: false, $disabled: false) {
@@ -54,8 +55,8 @@ $delay: 0.4s;
     }
   } @else {
     @if ($disabled) {
-      border-color: $primaryDisabled;
-      color: $primaryDisabled;
+      border-color: $colorDisabled;
+      color: $colorDisabled;
       cursor: not-allowed;
     }
   }
@@ -88,6 +89,7 @@ $delay: 0.4s;
 
 @mixin text ($isDanger: false, $disabled: false) {
   border: none;
+  background: transparent;
 
   @if ($isDanger) {
     color: $danger;
@@ -105,14 +107,14 @@ $delay: 0.4s;
 
   @if($disabled == false) {
     &:hover,&:focus {
-      color: $colorHover;
+      color: $primary;
       @if ($isDanger) {
         color: $dangerHover;
       }
     }
 
     &:active {
-      color: $colorActive;
+      color: $primaryActive;
       @if ($isDanger) {
         color: $dangerActive;
       }
@@ -122,16 +124,49 @@ $delay: 0.4s;
 
 .t-button {
   color: $color;
+  position: relative;
+  font-size: 14px;
   background: white;
   cursor: pointer;
   margin-right: 10px;
   margin-bottom: 10px;
   border-radius: 2px;
-  font-size: 14px;
-  transition: background $delay, border $delay, color $delay;
+  vertical-align: top;
+  user-select: none;
+  touch-action: manipulation;
+  transition: all $delay;
+  white-space: nowrap;
 
   &:active, &:focus {
     outline: none;
+  }
+
+  span {
+    vertical-align: top;
+  }
+
+  &-loading {
+    pointer-events: none;
+
+    &::after {
+      pointer-events: none;
+      content: "";
+      position: absolute;
+      left: -1px;
+      top: -1px;
+      right: -1px;
+      bottom: -1px;
+      border-radius: inherit;
+      background-color: rgba(255,255,255,.35);
+    }
+  }
+
+  &-block {
+    width: 100%;
+  }
+
+  &-loading {
+    cursor: default;
   }
 
   &-type {
@@ -202,18 +237,18 @@ $delay: 0.4s;
 
   &-size {
     &-large {
+      height: 40px;
       font-size: 16px;
-      line-height: 24px;
-      padding: 8px 15px;
+      padding: 8px 20px;
     }
 
     &-default {
-      line-height: 24px;
+      height: 32px;
       padding: 4px 10px;
     }
 
     &-small {
-      line-height: 18px;
+      height: 22px;
       padding: 2px 10px;
     }
   }

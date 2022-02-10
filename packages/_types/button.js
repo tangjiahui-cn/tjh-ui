@@ -18,6 +18,14 @@ export const props = {
   danger: {
     type: Boolean,
     default: false
+  },
+  loading: {
+    type: Boolean,
+    default: false
+  },
+  block: {
+    type: Boolean,
+    default: false
   }
 }
 
