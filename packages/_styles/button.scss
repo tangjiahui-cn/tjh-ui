@@ -131,11 +131,11 @@ $delay: 0.4s;
   margin-right: 10px;
   margin-bottom: 10px;
   border-radius: 2px;
-  vertical-align: top;
   user-select: none;
   touch-action: manipulation;
   transition: all $delay;
   white-space: nowrap;
+  line-height: 1;
 
   &:active, &:focus {
     outline: none;
