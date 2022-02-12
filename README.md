@@ -9,6 +9,8 @@
   git clone  https://github.com/tangjiahui-cn/tjh-ui.git 
   
   yarn
+  
+  yarn dev
 ```
 
 #### 2、技术栈
