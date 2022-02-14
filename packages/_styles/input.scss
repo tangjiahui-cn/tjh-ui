@@ -1,8 +1,42 @@
-input {
+@import "./common/index.scss";
+
+.t-input {
+  position: relative;
+  transition: all $delay;
   border: 1px solid #e5e5e5;
-  padding: 5px 10px;
+  border-radius: $borderRadius;
+  touch-action: manipulation;
+  box-sizing: border-box;
+  line-height: 1;
+  width: 100%;
+  color: $color;
+  margin: 0px 10px 10px 0px;
+  font-size: 14px;
+
+  &::-webkit-input-placeholder {
+    color: $border;
+  }
 
   &:focus {
     outline: none;
+    border-color: $primaryHover;
+  }
+
+  &-size {
+    &-large {
+      height: $largeHeight;
+      font-size: 16px;
+      padding: 5px 14px;
+    }
+
+    &-default {
+      height: $height;
+      padding: 5px 11px;
+    }
+
+    &-small {
+      height: $smallHeight;
+      padding: 2px 5px;
+    }
   }
 }

@@ -1,6 +1,4 @@
-@import "./common/var.scss";
-
-$delay: 0.4s;
+@import "./common/index.scss";
 
 @mixin primary ($isDanger: false, $disabled: false) {
   color: white;
@@ -130,12 +128,13 @@ $delay: 0.4s;
   cursor: pointer;
   margin-right: 10px;
   margin-bottom: 10px;
-  border-radius: 2px;
+  border-radius: $borderRadius;
   user-select: none;
   touch-action: manipulation;
   transition: all $delay;
   white-space: nowrap;
   line-height: 1;
+  box-sizing: border-box;
 
   &:active, &:focus {
     outline: none;
@@ -237,18 +236,18 @@ $delay: 0.4s;
 
   &-size {
     &-large {
-      height: 40px;
+      height: $largeHeight;
       font-size: 16px;
       padding: 8px 20px;
     }
 
     &-default {
-      height: 32px;
+      height: $height;
       padding: 4px 10px;
     }
 
     &-small {
-      height: 22px;
+      height: $smallHeight;
       padding: 2px 10px;
     }
   }

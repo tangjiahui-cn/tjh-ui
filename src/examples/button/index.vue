@@ -1,7 +1,5 @@
 <template>
-  <div class="pages">
-    <div class="pages-head">按钮</div>
-    <div class="line"/>
+  <Page title="按钮（Button）">
     <Block v-show=true title="1、按钮类型（type）">
       <t-button type="primary">primary</t-button>
       <t-button type="default">default</t-button>
@@ -77,16 +75,17 @@
       <t-button type="dashed" block>dashed</t-button>
       <t-button type="text" block>text</t-button>
     </Block>
-  </div>
+  </Page>
 </template>
 
 <script>
 import {defineComponent, ref} from "vue"
 import Block from "../../components/Block/index.vue"
+import Page from "../../components/Page/index.vue"
 
 export default defineComponent({
   name: "index",
-  components: {Block},
+  components: {Block, Page},
   setup() {
     const loading = ref(false)
 
@@ -106,24 +105,3 @@ export default defineComponent({
   }
 })
 </script>
-
-<style scoped lang="scss">
-@import "~/common/var.scss";
-.pages {
-  color: #525252;
-  margin: 10px;
-  padding: 10px;
-  border: 1px solid $border;
-  font-size: 16px;
-  position: relative;
-
-  &-head {
-    font-size: 18px;
-  }
-
-  .line {
-    border: 1px solid #f1f1f1;
-    margin: 15px 0;
-  }
-}
-</style>
