@@ -7,34 +7,34 @@
         :key="key"
         :class="[
           'item',
-          current === item.id ? 'item-choose' : ''
+          current === item.path ? 'item-choose' : ''
         ]"
         @click="clickMenu(item)"
       >{{item.name}}</div>
     </div>
     <div class="body-right">
-      <Inputs v-if="current == 2"/>
-      <Buttons v-if="current == 1"/>
+      <router-view />
     </div>
   </div>
 </template>
 <script>
 import {ref} from "vue"
-import Buttons from "./examples/button/index.vue"
-import Inputs from "./examples/input/index.vue"
+import {useRouter} from "vue-router"
+import examples from "./router/examples"
 
 export default {
-  components: {Buttons, Inputs},
   setup() {
-    const menuData = [
-      {id: 1, name: "Button"},
-      {id: 2, name: "Input"}
-    ]
+    const router = useRouter()
+    const menuData = examples.filter(x => x.name)
+    const current = ref(menuData[0].path)
 
-    const current = ref(1)
+    if (menuData.length) {
+      router.push(menuData[0].path)
+    }
 
     function clickMenu(item) {
-      current.value = item.id
+      current.value = item.path
+      router.push(item.path)
     }
 
     return {
