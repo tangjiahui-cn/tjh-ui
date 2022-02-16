@@ -63,10 +63,10 @@ export default {
     &-head {
       color: $borderDeep;
       padding: 20px 40px;
-      background: whitesmoke;
       cursor: default;
       user-select: none;
       margin-bottom: 10px;
+      background: whitesmoke;
     }
   }
 
@@ -77,7 +77,7 @@ export default {
 }
 
 .item {
-  padding: 5px 10px;
+  padding: 10px;
   cursor: pointer;
   color: $colorHover;
   box-sizing: border-box;

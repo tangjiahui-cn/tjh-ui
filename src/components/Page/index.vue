@@ -1,8 +1,10 @@
 <template>
   <div class="pages">
     <div class="pages-head">{{ title }}</div>
-    <div class="line"/>
-    <slot></slot>
+<!--    <div class="line"/>-->
+    <div class="pages-body">
+      <slot></slot>
+    </div>
   </div>
 </template>
 
@@ -24,20 +26,23 @@ export default defineComponent({
 @import "~/common/index.scss";
 .pages {
   color: #525252;
-  margin: 10px;
-  padding: 10px;
-  border: 1px solid $border;
   font-size: 16px;
   position: relative;
+  display: flex;
+  flex-direction: column;
 
   &-head {
-    font-size: 18px;
     font-weight: bold;
+    font-size: 18px;
+    border-bottom: 1px solid #d9d9d9;
+    margin-bottom: 10px;
+    padding: 0px 20px;
+    height: 61px;
+    line-height: 61px;
   }
 
-  .line {
-    border: 1px solid #f1f1f1;
-    margin: 15px 0;
+  &-body {
+    padding: 0px 20px;
   }
 }
 </style>
