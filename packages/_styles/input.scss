@@ -2,16 +2,14 @@
 
 .t-input {
   position: relative;
-  transition: all $delay;
-  border: 1px solid #e5e5e5;
+  display: inline-block;
+  border: 1px solid $border;
   border-radius: $borderRadius;
-  touch-action: manipulation;
   box-sizing: border-box;
   line-height: 1;
   width: 100%;
-  color: $color;
-  margin: 0px 10px 10px 0px;
-  font-size: 14px;
+  transition: all $delay;
+  vertical-align: middle;
 
   &::-webkit-input-placeholder {
     color: $border;
@@ -19,7 +17,13 @@
 
   &:focus {
     outline: none;
-    border-color: $primaryHover;
+    border: 1px solid $primary;
+  }
+
+  &-disabled {
+    @extend .t-input;
+    color: $colorDisabled;
+    cursor: not-allowed;
   }
 
   &-size {
@@ -27,16 +31,52 @@
       height: $largeHeight;
       font-size: 16px;
       padding: 5px 14px;
+      border-radius: $borderRadiusLarge;
+
+      &-clear {
+        @extend .t-input-size-large;
+        padding-right: 30px;
+      }
     }
 
     &-default {
       height: $height;
       padding: 5px 11px;
+
+      &-clear {
+        @extend .t-input-size-default;
+        padding-right: 30px;
+      }
     }
 
     &-small {
       height: $smallHeight;
       padding: 2px 5px;
+
+      &-clear {
+        @extend .t-input-size-small;
+        padding-right: 30px;
+      }
     }
+  }
+}
+
+.t-input-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.t-input-right {
+  font-size: 12px;
+  color: $border;
+  transition: all $delay;
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translate(0, -50%);
+
+  &:hover {
+    color: $borderDeep;
   }
 }

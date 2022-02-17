@@ -23,7 +23,7 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-@import "~/common/index.scss";
+@import "~/common/var/index.scss";
 .pages {
   color: #525252;
   font-size: 16px;

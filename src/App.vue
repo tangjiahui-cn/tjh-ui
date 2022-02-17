@@ -25,10 +25,11 @@ import examples from "./router/examples"
 export default {
   setup() {
     const router = useRouter()
-    const menuData = examples.filter(x => x.name)
-    const current = ref(menuData[0].path)
+    const menuData = examples.filter(x => x.name && (x.visible !== undefined ? x.visible : true))
+    const current = ref(0)
 
     if (menuData.length) {
+      current.value = menuData[0].path
       router.push(menuData[0].path)
     }
 
@@ -47,7 +48,7 @@ export default {
 
 </script>
 <style scoped lang="scss">
-@import "~/common/index.scss";
+@import "~/common/var/index.scss";
 .body {
   position: absolute;
   left: 0;

@@ -1,9 +1,22 @@
 <template>
   <Page title="输入框（Input）">
-    <Block v-show=true title="1、大小(size)">
-      <t-input size="large" placeholder="large" style="width: 200px;"/>
-      <t-input value="default" style="width: 200px;"/>
-      <t-input size="small" value="small" style="width: 200px;"/>
+    <Block v-if=true title="1、大小(size)">
+      <t-input size="large" placeholder="large" style="width: 200px;" defaultValue="你好"/>
+      <t-input size="default" placeholder="default" style="width: 200px;"/>
+      <t-input size="small" defaultValue="small" style="width: 200px;"/>
+    </Block>
+    <Block v-if=true title="2、可清空(allowClear)">
+<!--      <div>{{value}}</div>-->
+      <t-input v-if="true" allowClear size="large" placeholder="large" style="width: 200px;"/>
+      <t-input allowClear style="width: 200px;" :value="value"/>
+<!--      <t-input allowClear style="width: 200px;" :value="value" @change="handleChange"/>-->
+<!--      <t-input v-if="true" allowClear style="width: 200px;" v-model="value"/>-->
+      <t-input v-if="true" allowClear size="small" value="small" style="width: 200px;"/>
+    </Block>
+    <Block v-if=true title="3、禁用(disabled)">
+      <t-input disabled allowClear size="large" placeholder="large" style="width: 200px;" value="1"/>
+      <t-input disabled allowClear value="default" style="width: 200px;"/>
+      <t-input disabled allowClear size="small" value="small" style="width: 200px;"/>
     </Block>
   </Page>
 </template>
@@ -17,20 +30,15 @@ export default defineComponent({
   name: "index",
   components: {Block, Page},
   setup() {
-    const loading = ref(false)
+    const value = ref("default")
 
-    function clickLoading() {
-      if (!loading.value) {
-        loading.value = true
-        setTimeout(() => {
-          loading.value = false
-        }, 1000 * 3)
-      }
+    function handleChange(e) {
+      value.value = e.target.value
     }
 
     return {
-      loading,
-      clickLoading
+      value,
+      handleChange
     }
   }
 })

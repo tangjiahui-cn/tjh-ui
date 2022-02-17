@@ -6,7 +6,8 @@
       `t-button-type-${type}${danger ? '-danger' : ''}` +
         `${disabled ? '-disabled' : ''}`,
       block ? `t-button-block` : ``,
-      loading ? `t-button-loading` : ''
+      loading ? `t-button-loading` : '',
+      autoSpace ? 'space' : ''
     ]"
     @mouseenter="hover = true"
     @mouseleave="hover = focus || false"
@@ -52,7 +53,7 @@ export default defineComponent({
 @mixin circle ($color) {
   border: 1px solid transparent;
   border-top-color: $color;
-  animation: 1s loadingCircle infinite linear;
+  animation: 1s rotateLoop infinite linear;
 }
 
 @mixin colorCircle ($_color) {
@@ -94,12 +95,6 @@ export default defineComponent({
         @include colorCircle($dangerHover);
       }
     }
-  }
-}
-
-@keyframes loadingCircle {
-  to {
-    transform: rotate(360deg);
   }
 }
 </style>

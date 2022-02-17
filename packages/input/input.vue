@@ -1,23 +1,87 @@
 <template>
-  <input
+  <span
     :class="[
-      't-input',
-      `t-input-size-${size}`
+      't-input-wrapper',
+      autoSpace ? 'space' : ''
     ]"
-    :value="value"
-    :placeholder="placeholder"
-  />
+  >
+    <input
+      ref="inputRef"
+      :disabled="disabled"
+      :placeholder="placeholder"
+      :class="[
+        `t-input${disabled ? '-disabled' : ''}`,
+        `t-input-size-${size}${allowClear ? '-clear' : ''}`
+      ]"
+      @input="handleInput"
+    />
+
+    <t-icon
+      v-if="showClear"
+      type="clear"
+      class="t-input-right"
+      @click="handleClear"
+    />
+  </span>
 </template>
 
 <script>
-import {defineComponent} from "vue"
+import {defineComponent, computed, onMounted, ref, watch} from "vue"
 import {props, emits} from "../_types/input"
 
 export default defineComponent({
   name: "TInput",
   props,
   emits,
-  setup() {}
+  setup(props, {emit}) {
+    const inputRef = ref()
+    const inputValue = ref(props.value || props.defaultValue || "")
+
+    const isValue = computed(() => props.value !== undefined)
+    const showClear = computed(() => {
+      return !props.disabled && props.allowClear && inputValue.value
+    })
+
+    watch(() => props.value, () => {
+      if (props.value !== undefined) {
+        inputRef.value.value = props.value
+        inputValue.value = props.value
+      }
+    })
+
+    function handleInput(e) {
+      Object.defineProperty(e, "target", { writable: true })
+      e.target = inputRef.value.cloneNode(true)
+
+      const value = isValue.value ? props.value : e.target.value
+      inputRef.value.value = value
+      inputValue.value = value
+      emit("change", e)
+    }
+
+    function handleClear(e) {
+      Object.defineProperty(e, "target", { writable: true })
+      e.target = inputRef.value.cloneNode(true)
+      e.target.value = ""
+
+      if (!isValue.value) {
+        inputRef.value.value = ""
+        inputValue.value = ""
+      }
+      emit("change", e)
+    }
+
+    onMounted(() => {
+      inputRef.value.value = inputValue.value
+    })
+
+    return {
+      showClear,
+      inputRef,
+      handleInput,
+      handleClear
+    }
+  }
 })
 </script>
 

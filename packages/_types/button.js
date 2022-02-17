@@ -26,6 +26,10 @@ export const props = {
   block: {
     type: Boolean,
     default: false
+  },
+  autoSpace: {
+    type: Boolean,
+    default: true
   }
 }
 

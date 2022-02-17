@@ -8,3 +8,5 @@
 *.json
 *.md
 *.lock
+
+/packages/_assets/

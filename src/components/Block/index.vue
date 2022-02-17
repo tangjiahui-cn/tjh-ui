@@ -2,7 +2,7 @@
   <div class="pages-block">
     <div class="pages-block-head">{{ title }}</div>
     <div class="pages-block-body">
-      <slot>body</slot>
+      <slot />
     </div>
   </div>
 </template>

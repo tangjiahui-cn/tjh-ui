@@ -4,9 +4,13 @@ export {Button}
 import Input from "./input/index"
 export {Input}
 
+import Icon from "./icon/index"
+export {Icon}
+
 const components = {
   Button,
-  Input
+  Input,
+  Icon
 }
 
 export default components
