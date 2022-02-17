@@ -1,9 +1,7 @@
 <template>
-  <i class="">
   <svg class="icon" aria-hidden="true" :style="style">
     <use v-if=type :xlink:href="`#icon-${type}`" />
   </svg>
-  </i>
 </template>
 
 <script>
