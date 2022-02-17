@@ -1,7 +1,7 @@
 import rollupConfig from "../rollup.lib"
 let checked = false
 /*
- * 解决"isCE"的bug
+ * 修复 jest 测试 tsx 报错的bug
  *
  * 注意：需要在打包配置中启用: external:["vue"]
  */
