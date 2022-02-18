@@ -38,23 +38,7 @@ export default {
       router.push(item.path)
     }
 
-    const loading = ref(false)
-    function handleClick() {
-      console.log(1)
-      loading.value = true
-      // setTimeout(() => {
-      //   loading.value = false
-      // }, 2000)
-    }
-
-    function closeLoading() {
-      loading.value = false
-    }
-
     return {
-      loading,
-      handleClick,
-      closeLoading,
       menuData,
       current,
       clickMenu
