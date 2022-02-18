@@ -1,23 +1,19 @@
-@import "./common/index.scss";
+@import "./common/index";
 
 .t-input {
+  color: $color;
   position: relative;
   display: inline-block;
-  border: 1px solid $border;
-  border-radius: $borderRadius;
   box-sizing: border-box;
   line-height: 1;
-  width: 100%;
-  transition: all $delay;
+  border: 1px solid $border;
   vertical-align: middle;
-
-  &::-webkit-input-placeholder {
-    color: $border;
-  }
+  border-radius: $borderRadius;
+  width: 100%;
+  font-size: 14px;
 
   &:focus {
     outline: none;
-    border: 1px solid $primary;
   }
 
   &-disabled {
@@ -25,45 +21,42 @@
     color: $colorDisabled;
     cursor: not-allowed;
   }
+}
 
-  &-size {
-    &-large {
-      height: $largeHeight;
-      font-size: 16px;
-      padding: 5px 14px;
-      border-radius: $borderRadiusLarge;
-
-      &-clear {
-        @extend .t-input-size-large;
-        padding-right: 30px;
-      }
+.t-input-size {
+  &-large {
+    height: $largeHeight;
+    padding: 4px 12px;
+    font-size: 16px;
+    border-radius: $borderRadiusLarge;
+    &-clear {
+      @extend .t-input-size-large;
+      padding-right: 27px;
     }
+  }
 
-    &-default {
-      height: $height;
-      padding: 5px 11px;
-
-      &-clear {
-        @extend .t-input-size-default;
-        padding-right: 30px;
-      }
+  &-default {
+    height: $height;
+    padding: 4px 10px;
+    &-clear {
+      @extend .t-input-size-default;
+      padding-right: 25px;
     }
+  }
 
-    &-small {
-      height: $smallHeight;
-      padding: 2px 5px;
-
-      &-clear {
-        @extend .t-input-size-small;
-        padding-right: 30px;
-      }
+  &-small {
+    height: $smallHeight;
+    padding: 2px 6px;
+    &-clear {
+      @extend .t-input-size-small;
+      padding-right: 24px;
     }
   }
 }
 
 .t-input-wrapper {
-  position: relative;
   display: inline-block;
+  position: relative;
 }
 
 .t-input-right {

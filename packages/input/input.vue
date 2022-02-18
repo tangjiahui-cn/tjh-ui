@@ -1,27 +1,22 @@
 <template>
-  <span
-    :class="[
-      't-input-wrapper',
-      autoSpace ? 'space' : ''
-    ]"
-  >
+  <span class="t-input-wrapper">
     <input
       ref="inputRef"
       :disabled="disabled"
       :placeholder="placeholder"
-      :class="[
-        `t-input${disabled ? '-disabled' : ''}`,
-        `t-input-size-${size}${allowClear ? '-clear' : ''}`
-      ]"
       @input="handleInput"
+      :class="[
+        't-input',
+        `t-input-size-${size}${(!disabled && allowClear) ? '-clear' : ''}`,
+        disabled ? 't-input-disabled' : ''
+      ]"
     />
-
     <t-icon
       v-if="showClear"
       type="clear"
       class="t-input-right"
       @click="handleClear"
-    />
+    ></t-icon>
   </span>
 </template>
 

@@ -1,29 +1,28 @@
 <template>
   <button
+    :disabled="disabled"
     :class="[
-      `t-button`,
+      't-button',
       `t-button-size-${size}`,
-      `t-button-type-${type}${danger ? '-danger' : ''}` +
-        `${disabled ? '-disabled' : ''}`,
-      block ? `t-button-block` : ``,
-      loading ? `t-button-loading` : '',
-      autoSpace ? 'space' : ''
+      `t-button-type-${type}${danger ? '-danger' : ''}`,
+      block ? 't-button-block' : '',
+      loading ? 't-button-loading' : ''
     ]"
-    @mouseenter="hover = true"
-    @mouseleave="hover = focus || false"
-    @focusin="focus = true;hover = true"
-    @focusout="focus = false;hover = false"
+    @focusin="focus = true;"
+    @focusout="focus = false;"
   >
     <span
       v-if="loading"
       :class="[
-        `loading-circle${type === 'primary' ? '-primary' : ''}` +
-          `${danger ? '-danger' : ''}` +
-          `${hover ? '-hover' : ''}`
+        'loading-circle',
+        `loading-circle-size-${size}`,
+        `loading-circle-type-${type}${danger ? '-danger' : ''}${focus ? '-focus' : ''}`
       ]"
     />
     <span>
-      <slot>{{ value }}</slot>
+      <slot>
+        {{ value }}
+      </slot>
     </span>
   </button>
 </template>
@@ -37,10 +36,8 @@ export default defineComponent({
   props,
   emits,
   setup() {
-    const hover = ref(false)
     const focus = ref(false)
     return {
-      hover,
       focus
     }
   }
@@ -50,49 +47,71 @@ export default defineComponent({
 <style lang="scss">
 @import "../_styles/button.scss";
 
-@mixin circle ($color) {
+.loading-circle {
+  margin-top: -3px;
+  border-radius: 100%;
+  display: inline-block;
+  background: transparent;
   border: 1px solid transparent;
-  border-top-color: $color;
   animation: 1s rotateLoop infinite linear;
-}
+  box-sizing: border-box;
 
-@mixin colorCircle ($_color) {
-  @extend .loading-circle;
-  @include circle($_color);
-}
-
-.loading {
-  &-circle {
-    width: 14px;
-    height: 14px;
-    margin-right: 8px;
-    border-radius: 100%;
-    display: inline-block;
-    background: transparent;
-    @include circle($colorHover);
-
-    &-hover {
-      @include colorCircle($primaryHover);
+  &-size {
+    &-large {
+      width: 16px;
+      height: 16px;
+      margin-right: 15px;
     }
 
-    &-primary {
-      @include colorCircle(white);
-      &-hover {
-        @include colorCircle(white);
+    &-default {
+      width: 14px;
+      height: 14px;
+      margin-right: 10px;
+    }
+
+    &-small {
+      width: 14px;
+      height: 14px;
+      margin-right: 5px;
+    }
+  }
+
+  &-type {
+    @mixin default {
+      border-top-color: $color;
+
+      &-focus {
+        border-top-color: $primary;
+      }
+
+      &-danger,
+      &-danger-focus {
+        border-top-color: $danger;
+      }
+    }
+
+    &-primary,
+    &-primary-focus,
+    &-primary-danger,
+    &-primary-danger-focus {
+      border-top-color: white;
+    }
+
+    &-default { @include default; }
+
+    &-dashed { @include default; }
+
+    &-text {
+      border-top-color: $color;
+      &-focus {
+        border-top-color: $color;
       }
 
       &-danger {
-        @include colorCircle(white);
-        &-hover {
-          @include colorCircle(white);
+        border-top-color: $danger;
+        &-focus {
+          border-top-color: $danger;
         }
-      }
-    }
-
-    &-danger {
-      @include colorCircle($danger);
-      &-hover {
-        @include colorCircle($dangerHover);
       }
     }
   }

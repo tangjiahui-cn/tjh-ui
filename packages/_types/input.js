@@ -19,14 +19,6 @@ export const props = {
     type: Boolean,
     default: false
   },
-  showSearch: {
-    type: Boolean,
-    default: false
-  },
-  autoSpace: {
-    type: Boolean,
-    default: true
-  },
   disabled: {
     type: Boolean,
     default: false

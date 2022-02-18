@@ -1,7 +1,9 @@
 <template>
-  <svg class="icon" aria-hidden="true" :style="style">
-    <use v-if=type :xlink:href="`#icon-${type}`" />
-  </svg>
+  <span>
+    <svg class="icon" aria-hidden="true" :style="style">
+      <use v-if=type :xlink:href="`#icon-${type}`" />
+    </svg>
+  </span>
 </template>
 
 <script>

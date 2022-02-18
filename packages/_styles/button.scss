@@ -1,253 +1,168 @@
 @import "./common/index.scss";
 
-@mixin primary ($isDanger: false, $disabled: false) {
-  color: white;
-  background: $primary;
-  border: 1px solid $primaryHover;
+.t-button {
+  color: $color;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  line-height: 1;
+  border: 1px solid $border;
+  vertical-align: middle;
+  border-radius: $borderRadius;
+  font-size: 14px;
+  transition: all $delay;
+  user-select: none;
 
-  @if ($isDanger) {
-    background: $danger;
-    border: 1px solid $dangerHover;
-
-    @if ($disabled) {
-      background: $dangerDisabled;
-      border-color: $dangerDisabled;
-      cursor: not-allowed;
-    }
-  } @else {
-    @if ($disabled) {
-      background: $primaryDisabled;
-      border-color: $primaryDisabled;
-      cursor: not-allowed;
-    }
-  }
-
-  @if($disabled == false) {
-    &:hover,&:focus {
-      background: $primaryHover;
-      @if ($isDanger) {
-        background: $dangerHover;
-      }
-    }
-
-    &:active {
-      background: $primaryActive;
-      @if ($isDanger) {
-        background: $dangerActive;
-      }
-    }
+  span {
+    vertical-align: middle;
   }
 }
 
-@mixin default ($isDanger: false, $disabled: false) {
-  border: 1px solid $border;
+.t-button-size {
+  &-large {
+    height: $largeHeight;
+    padding: 8px 12px;
+    font-size: 16px;
+    border-radius: $borderRadiusLarge;
+  }
+
+  &-default {
+    height: $height;
+    padding: 4px 10px;
+  }
+
+  &-small {
+    height: $smallHeight;
+    padding: 2px 6px;
+  }
+}
+
+@mixin primary ($color: white, $bg: $primary, $bgHover: $primaryHover,$bgActive: $primaryActive) {
+  color: $color;
+  background: $bg;
+  border-color: $bg;
+
+  &:hover,
+  &:focus {
+    background: $bgHover;
+    border-color: $bgHover;
+  }
+
+  &:active {
+    background: $bgActive;
+    border-color: $bgActive;
+  }
+
+  &:disabled {
+    background: $primaryDisabled;
+    border-color: $primaryDisabled;
+    cursor: not-allowed;
+  }
+}
+
+@mixin default ($bdHover: $primaryHover, $bdActive: $primaryActive, $isDanger: false) {
+  background: white;
 
   @if ($isDanger) {
     color: $danger;
     border-color: $danger;
-
-    @if ($disabled) {
-      border-color: $dangerDisabled;
-      color: $dangerDisabled;
-      cursor: not-allowed;
-    }
-  } @else {
-    @if ($disabled) {
-      border-color: $colorDisabled;
-      color: $colorDisabled;
-      cursor: not-allowed;
-    }
   }
 
-  @if($disabled == false) {
-    &:hover,&:focus {
-      border-color: $primaryHover;
-      color: $primaryHover;
-      @if ($isDanger) {
-        border-color: $dangerHover;
-        color: $dangerHover;
-      }
-    }
+  &:hover,
+  &:focus {
+    color: $bdHover;
+    border-color: $bdHover;
+  }
 
-    &:active {
-      border-color: $primaryActive;
-      color: $primaryActive;
-      @if ($isDanger) {
-        border-color: $dangerActive;
-        color: $dangerActive;
-      }
-    }
+  &:active {
+    color: $bdActive;
+    border-color:$bdActive;
+  }
+
+  &:disabled {
+    $disabledCol: $colorDisabled;
+    @if ($isDanger) { $disabledCol: $dangerDisabled; }
+    color: $disabledCol;
+    border-color: $disabledCol;
+    cursor: not-allowed;
   }
 }
 
-@mixin dashed ($isDanger: false, $disabled: false) {
-  @include default($isDanger, $disabled);
-  border-style: dashed;
-}
-
-@mixin text ($isDanger: false, $disabled: false) {
-  border: none;
-  background: transparent;
-
-  @if ($isDanger) {
-    color: $danger;
-
-    @if ($disabled) {
-      color: $dangerDisabled;
-      cursor: not-allowed;
-    }
-  } @else {
-    @if ($disabled) {
-      color: $colorDisabled;
-      cursor: not-allowed;
-    }
-  }
-
-  @if($disabled == false) {
-    &:hover,&:focus {
-      color: $primary;
-      @if ($isDanger) {
-        color: $dangerHover;
-      }
-    }
-
-    &:active {
-      color: $primaryActive;
-      @if ($isDanger) {
-        color: $dangerActive;
-      }
-    }
-  }
-}
-
-.t-button {
-  color: $color;
-  position: relative;
-  font-size: 14px;
+@mixin text ($colHover: $colorHover, $colActive: $colorActive, $isDanger: false) {
+  border-color: transparent;
   background: white;
-  cursor: pointer;
-  border-radius: $borderRadius;
-  user-select: none;
-  touch-action: manipulation;
-  transition: all $delay;
-  white-space: nowrap;
-  line-height: 1;
-  box-sizing: border-box;
 
-  &:active, &:focus {
-    outline: none;
+  @if ($isDanger) { color: $danger; }
+
+  &:hover,
+  &:focus {
+    color: $colHover;
   }
 
-  span {
-    vertical-align: top;
+  &:active {
+    color: $colActive;
   }
 
-  &-loading {
+  &:disabled {
+    @if ($isDanger) { color: $dangerDisabled; }
+    @else { color: $colorDisabled; }
+    cursor: not-allowed;
+  }
+}
+
+.t-button-type {
+  &-primary {
+    @include primary(white, $primary, $primaryHover, $primaryActive);
+
+    &-danger {
+      @include primary(white, $danger, $dangerHover, $dangerActive);
+    }
+  }
+
+  &-default {
+    @include default($primaryHover, $primaryActive);
+
+    &-danger {
+      @include default($dangerHover, $dangerActive, true);
+    }
+  }
+
+  &-dashed {
+    @extend .t-button-type-default;
+    border-style: dashed;
+
+    &-danger {
+      @extend .t-button-type-default-danger;
+      border-style: dashed;
+    }
+  }
+
+  &-text {
+    @include text($colorHover, $colorActive);
+
+    &-danger {
+      @include text($dangerHover, $dangerActive, true);
+    }
+  }
+}
+
+.t-button-block {
+  width: 100%;
+}
+
+.t-button-loading {
+  pointer-events: none;
+
+  &::after {
     pointer-events: none;
-
-    &::after {
-      pointer-events: none;
-      content: "";
-      position: absolute;
-      left: -1px;
-      top: -1px;
-      right: -1px;
-      bottom: -1px;
-      border-radius: inherit;
-      background-color: rgba(255,255,255,.35);
-    }
-  }
-
-  &-block {
-    width: 100%;
-  }
-
-  &-loading {
-    cursor: default;
-  }
-
-  &-type {
-    &-primary {
-      @include primary(false, false);
-
-      &-disabled {
-        @include primary(false, true);
-      }
-
-      &-danger {
-        @include primary(true, false);
-
-        &-disabled {
-          @include primary(true, true);
-        }
-      }
-    }
-
-    &-default {
-      @include default(false, false);
-
-      &-disabled {
-        @include default(false, true);
-      }
-
-      &-danger {
-        @include default(true, false);
-
-        &-disabled {
-          @include default(true, true);
-        }
-      }
-    }
-
-    &-dashed {
-      @include dashed(false, false);
-
-      &-disabled {
-        @include dashed(false, true);
-      }
-
-      &-danger {
-        @include dashed(true, false);
-
-        &-disabled {
-          @include dashed(true, true);
-        }
-      }
-    }
-
-    &-text {
-      @include text(false, false);
-
-      &-disabled {
-        @include text(false, true);
-      }
-
-      &-danger {
-        @include text(true, false);
-
-        &-disabled {
-          @include text(true, true);
-        }
-      }
-    }
-  }
-
-  &-size {
-    &-large {
-      height: $largeHeight;
-      font-size: 16px;
-      padding: 8px 20px;
-      border-radius: $borderRadiusLarge;
-    }
-
-    &-default {
-      height: $height;
-      padding: 4px 10px;
-    }
-
-    &-small {
-      height: $smallHeight;
-      padding: 2px 10px;
-    }
+    content: "";
+    position: absolute;
+    left: -1px;
+    top: -1px;
+    right: -1px;
+    bottom: -1px;
+    border-radius: inherit;
+    background-color: rgba(255,255,255,.35);
   }
 }
