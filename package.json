@@ -1,7 +1,7 @@
 {
   "name": "tjh-ui",
   "private": false,
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "a vue3 component storage.",
   "main": "./lib/index.umd.js",
   "module": "./lib/index.es.js",
@@ -12,6 +12,13 @@
     "url": ""
   },
   "license": "ISC",
+  "keywords": [
+    "ui",
+    "vue",
+    "vue3",
+    "tjh-ui",
+    "components library"
+  ],
   "scripts": {
     "dev": "vite",
     "test": "jest",
