@@ -4,8 +4,8 @@ export const props = {
     default: "" // 可选：clear
   },
   style: {
-    type: [Object, String],
-    default: ""
+    type: Object,
+    default: () => {}
   }
 }
 

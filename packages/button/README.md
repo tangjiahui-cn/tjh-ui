@@ -36,9 +36,3 @@
 <br>可选：true、false
 <br>类型：Boolean
 <br>默认：false
-
-(7) <b>autoSpace</b>。 自动间距。
-<br>可选：true、false
-<br>类型：Boolean
-<br>默认：true
-

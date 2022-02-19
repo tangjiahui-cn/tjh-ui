@@ -1,5 +1,5 @@
 <template>
-  <span>
+  <span class="inline-block">
     <svg class="icon" aria-hidden="true" :style="style">
       <use v-if=type :xlink:href="`#icon-${type}`" />
     </svg>
@@ -20,7 +20,11 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+.inline-block {
+  display: inline-block;
+}
+
 .icon {
   width: 1em; height: 1em;
   vertical-align: -0.15em;
