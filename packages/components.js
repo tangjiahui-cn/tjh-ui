@@ -7,10 +7,14 @@ export {Input}
 import Icon from "./icon/index"
 export {Icon}
 
+import Space from "./space/index"
+export {Space}
+
 const components = {
   Button,
   Input,
-  Icon
+  Icon,
+  Space
 }
 
 export default components
