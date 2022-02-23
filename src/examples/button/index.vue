@@ -80,12 +80,10 @@
       </t-space>
     </Block>
     <Block v-show=true title="6、块按钮（block）">
-      <t-space>
-        <t-button type="primary" block>primary</t-button>
-        <t-button type="default" block>default</t-button>
-        <t-button type="dashed" block>dashed</t-button>
-        <t-button type="text" block>text</t-button>
-      </t-space>
+      <t-button type="primary" block>primary</t-button>
+      <t-button type="default" block>default</t-button>
+      <t-button type="dashed" block>dashed</t-button>
+      <t-button type="text" block>text</t-button>
     </Block>
   </Page>
 </template>
