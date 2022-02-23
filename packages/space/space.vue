@@ -1,8 +1,6 @@
 <template>
   <div class="t-space">
-    <slot>
-      间距
-    </slot>
+    <slot />
   </div>
 </template>
 
