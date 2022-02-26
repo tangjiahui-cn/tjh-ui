@@ -1,7 +1,7 @@
 const list = [
-  "button",
-  "icon",
-  "input",
+  // "button",
+  // "icon",
+  // "input",
   "space"
 ]
 
