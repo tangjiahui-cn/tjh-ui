@@ -21,7 +21,7 @@ export default defineComponent({
 
     function updateEls(size = 8) {
       wrapperEls.value.forEach(el => {
-        el.update(size)
+        el.update && el.update(size)
       })
     }
 
@@ -41,7 +41,7 @@ export default defineComponent({
         }
       }
 
-      div.update(props.size)
+      div.update && div.update(props.size)
       return div
     }
 
