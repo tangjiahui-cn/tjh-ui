@@ -1,7 +1,7 @@
 {
   "name": "tjh-ui",
   "private": false,
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "a vue3 component storage.",
   "main": "./lib/index.umd.js",
   "module": "./lib/index.es.js",
