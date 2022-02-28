@@ -2,7 +2,7 @@
   <Page title="图标（Icon）">
     <Block v-show=true title="1、实心图标">
       <div class="block-show" v-for="(value, key) in list" :key="key">
-        <t-icon type="clear" class="block-show-icon"/>
+        <t-icon :type="value" class="block-show-icon"/>
         <span class="block-show-text">{{ value }}</span>
       </div>
     </Block>
@@ -20,7 +20,9 @@ export default defineComponent({
   setup() {
     const list = ref([
       "clear",
-      "clear"
+      "success",
+      "error",
+      "info"
     ])
 
     return {

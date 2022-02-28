@@ -2,7 +2,8 @@ const list = [
   "button",
   "icon",
   "input",
-  "space"
+  "space",
+  "message"
 ]
 
 export default list.map(name => ({

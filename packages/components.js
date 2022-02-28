@@ -10,11 +10,15 @@ export {Icon}
 import Space from "./space/index"
 export {Space}
 
+import Message from "./message/index"
+export {Message}
+
 const components = {
   Button,
   Input,
   Icon,
-  Space
+  Space,
+  Message
 }
 
 export default components

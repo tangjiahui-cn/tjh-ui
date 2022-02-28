@@ -1,0 +1,69 @@
+.loading-circle {
+  margin-top: -3px;
+  border-radius: 100%;
+  display: inline-block;
+  background: transparent;
+  border: 1px solid transparent;
+  animation: 1s rotateLoop infinite linear;
+  box-sizing: border-box;
+
+  &-size {
+    &-large {
+      width: 16px;
+      height: 16px;
+      margin-right: 15px;
+    }
+
+    &-default {
+      width: 14px;
+      height: 14px;
+      margin-right: 10px;
+    }
+
+    &-small {
+      width: 14px;
+      height: 14px;
+      margin-right: 5px;
+    }
+  }
+
+  &-type {
+    @mixin default {
+      border-top-color: $color;
+
+      &-focus {
+        border-top-color: $primary;
+      }
+
+      &-danger,
+      &-danger-focus {
+        border-top-color: $danger;
+      }
+    }
+
+    &-primary,
+    &-primary-focus,
+    &-primary-danger,
+    &-primary-danger-focus {
+      border-top-color: white;
+    }
+
+    &-default { @include default; }
+
+    &-dashed { @include default; }
+
+    &-text {
+      border-top-color: $color;
+      &-focus {
+        border-top-color: $color;
+      }
+
+      &-danger {
+        border-top-color: $danger;
+        &-focus {
+          border-top-color: $danger;
+        }
+      }
+    }
+  }
+}
