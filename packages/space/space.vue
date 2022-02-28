@@ -21,7 +21,7 @@ export default defineComponent({
 
     function updateEls(size = 8) {
       wrapperEls.value.forEach(el => {
-        el.style.marginRight = `${size}px`
+        el.update && el.update(size)
       })
     }
 
@@ -29,7 +29,19 @@ export default defineComponent({
       const div = document.createElement("div")
       div.appendChild(el)
       div.className = "t-space-item"
-      div.style.marginRight = `${props.size}px`
+
+      if (props.direction === "row") {
+        div.update = function (size) {
+          div.style.marginRight = `${size}px`
+        }
+      } else if (props.direction === "column") {
+        div.update = function (size) {
+          div.style.width = "100%"
+          div.style.marginBottom = `${size}px`
+        }
+      }
+
+      div.update && div.update(props.size)
       return div
     }
 
