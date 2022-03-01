@@ -24,7 +24,7 @@
     </Block>
     <Block v-if=true :title="`3、回调函数`">
       <t-space>
-        <t-button @click="handleClick('loading', duration * 1000, showSuccess)">消息关闭1秒后显示success</t-button>
+        <t-button @click="handleClick('loading', 1 * 1000, showSuccess)">消息关闭1秒后显示success</t-button>
       </t-space>
     </Block>
   </Page>
