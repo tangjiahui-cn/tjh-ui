@@ -7,4 +7,5 @@ import vueRouter from "./router"
 
 const app = createApp(App)
 
-app.use(tjhUi).use(vueRouter).mount("#app")
+app.use(tjhUi).use(vueRouter)
+  .mount("#app")
