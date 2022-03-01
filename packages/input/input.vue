@@ -7,7 +7,7 @@
       @input="handleInput"
       :class="[
         't-input',
-        `t-input-size-${size}${(!disabled && allowClear) ? '-clear' : ''}`,
+        `t-input-size-${size}${!disabled && allowClear ? '-clear' : ''}`,
         disabled ? 't-input-disabled' : ''
       ]"
     />
@@ -37,15 +37,18 @@ export default defineComponent({
       return !props.disabled && props.allowClear && inputValue.value
     })
 
-    watch(() => props.value, () => {
-      if (props.value !== undefined) {
-        inputRef.value.value = props.value
-        inputValue.value = props.value
+    watch(
+      () => props.value,
+      () => {
+        if (props.value !== undefined) {
+          inputRef.value.value = props.value
+          inputValue.value = props.value
+        }
       }
-    })
+    )
 
     function handleInput (e) {
-      Object.defineProperty(e, "target", { writable: true })
+      Object.defineProperty(e, "target", {writable: true})
       e.target = inputRef.value.cloneNode(true)
 
       const value = isValue.value ? props.value : e.target.value
@@ -55,7 +58,7 @@ export default defineComponent({
     }
 
     function handleClear (e) {
-      Object.defineProperty(e, "target", { writable: true })
+      Object.defineProperty(e, "target", {writable: true})
       e.target = inputRef.value.cloneNode(true)
       e.target.value = ""
 

@@ -5,7 +5,7 @@ export const props = {
   },
   direction: {
     type: String,
-    default: "row"  // 可选 row、column
+    default: "row" // 可选 row、column
   }
 }
 

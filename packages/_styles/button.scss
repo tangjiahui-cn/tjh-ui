@@ -38,7 +38,12 @@
   }
 }
 
-@mixin primary ($color: white, $bg: $primary, $bgHover: $primaryHover,$bgActive: $primaryActive) {
+@mixin primary(
+  $color: white,
+  $bg: $primary,
+  $bgHover: $primaryHover,
+  $bgActive: $primaryActive
+) {
   color: $color;
   background: $bg;
   border-color: $bg;
@@ -61,7 +66,11 @@
   }
 }
 
-@mixin default ($bdHover: $primaryHover, $bdActive: $primaryActive, $isDanger: false) {
+@mixin default(
+  $bdHover: $primaryHover,
+  $bdActive: $primaryActive,
+  $isDanger: false
+) {
   background: white;
 
   @if ($isDanger) {
@@ -77,23 +86,31 @@
 
   &:active {
     color: $bdActive;
-    border-color:$bdActive;
+    border-color: $bdActive;
   }
 
   &:disabled {
     $disabledCol: $colorDisabled;
-    @if ($isDanger) { $disabledCol: $dangerDisabled; }
+    @if ($isDanger) {
+      $disabledCol: $dangerDisabled;
+    }
     color: $disabledCol;
     border-color: $disabledCol;
     cursor: not-allowed;
   }
 }
 
-@mixin text ($colHover: $colorHover, $colActive: $colorActive, $isDanger: false) {
+@mixin text(
+  $colHover: $colorHover,
+  $colActive: $colorActive,
+  $isDanger: false
+) {
   border-color: transparent;
   background: white;
 
-  @if ($isDanger) { color: $danger; }
+  @if ($isDanger) {
+    color: $danger;
+  }
 
   &:hover,
   &:focus {
@@ -105,8 +122,11 @@
   }
 
   &:disabled {
-    @if ($isDanger) { color: $dangerDisabled; }
-    @else { color: $colorDisabled; }
+    @if ($isDanger) {
+      color: $dangerDisabled;
+    } @else {
+      color: $colorDisabled;
+    }
     cursor: not-allowed;
   }
 }
@@ -163,6 +183,6 @@
     right: -1px;
     bottom: -1px;
     border-radius: inherit;
-    background-color: rgba(255,255,255,.35);
+    background-color: rgba(255, 255, 255, 0.35);
   }
 }

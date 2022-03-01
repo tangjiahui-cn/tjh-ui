@@ -17,10 +17,13 @@ export default defineComponent({
     const that = useThis()
     const wrapperEls = ref([])
 
-    watch(() => props.size, () => updateEls(props.size))
+    watch(
+      () => props.size,
+      () => updateEls(props.size)
+    )
 
     function updateEls (size = 8) {
-      wrapperEls.value.forEach(el => {
+      wrapperEls.value.forEach((el) => {
         el.update && el.update(size)
       })
     }
@@ -47,7 +50,7 @@ export default defineComponent({
 
     function renderEls (current, els) {
       const list = []
-      els.forEach(el => {
+      els.forEach((el) => {
         const wrapperEl = wrapper(el)
         list.push(wrapperEl)
         current.appendChild(wrapperEl)
@@ -71,7 +74,6 @@ export default defineComponent({
 
       renderEls(current, els)
     })
-
   }
 })
 </script>

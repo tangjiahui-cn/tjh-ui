@@ -4,11 +4,15 @@
       <div class="t-message-item-body">
         <span
           v-if="item.type === 'loading'"
-          class="loading-circle loading-circle-size-small loading-circle-type-default-focus"/>
+          class="loading-circle loading-circle-size-small loading-circle-type-default-focus"
+        />
         <t-icon
           v-else
-          :type="['warn', 'warning', 'info'].includes(item.type) ? 'info' : item.type"
-          :class="[`t-message-item-body-icon-${item.type}`]"/>
+          :type="
+            ['warn', 'warning', 'info'].includes(item.type) ? 'info' : item.type
+          "
+          :class="[`t-message-item-body-icon-${item.type}`]"
+        />
         {{ item.content }}
       </div>
     </div>
@@ -27,18 +31,13 @@ export default defineComponent({
     const list = ref([])
 
     function push (options) {
-      const id = mid.value ++
-      const {
-        type = "",
-        content = "",
-        duration = 3 * 1000,
-        onClose
-      } = options
+      const id = mid.value++
+      const {type = "", content = "", duration = 3 * 1000, onClose} = options
 
       list.value.push({id, content, type})
 
       setTimeout(() => {
-        list.value = list.value.filter(x => x.id !== id)
+        list.value = list.value.filter((x) => x.id !== id)
         onClose && onClose()
       }, [duration])
     }

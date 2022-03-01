@@ -32,7 +32,8 @@
     "eslint:fix": "eslint --fix --ext .ts,.js,.vue ./packages ./build ./*.*.js ./*.js ./.*.js src",
     "prettier:fix": "prettier --write .",
     "lint-staged": "lint-staged",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "format": "yarn prettier:fix && yarn eslint:fix"
   },
   "dependencies": {
     "vue": "^3.2.25",

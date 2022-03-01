@@ -48,9 +48,13 @@
       border-top-color: white;
     }
 
-    &-default { @include default; }
+    &-default {
+      @include default;
+    }
 
-    &-dashed { @include default; }
+    &-dashed {
+      @include default;
+    }
 
     &-text {
       border-top-color: $color;

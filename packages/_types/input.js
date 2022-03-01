@@ -1,7 +1,7 @@
 export const props = {
   size: {
     type: String,
-    default: "default"  // 可选 default 、 small 、large
+    default: "default" // 可选 default 、 small 、large
   },
   value: {
     type: [String, undefined],

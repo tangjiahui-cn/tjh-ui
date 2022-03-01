@@ -5,12 +5,11 @@
       <div
         v-for="(item, key) in menuData"
         :key="key"
-        :class="[
-          'item',
-          current === item.path ? 'item-choose' : ''
-        ]"
+        :class="['item', current === item.path ? 'item-choose' : '']"
         @click="clickMenu(item)"
-      >{{item.name}}</div>
+      >
+        {{ item.name }}
+      </div>
     </div>
     <div class="body-right">
       <router-view />
@@ -25,7 +24,9 @@ import examples from "./router/examples"
 export default {
   setup () {
     const router = useRouter()
-    const menuData = examples.filter(x => x.name && (x.visible !== undefined ? x.visible : true))
+    const menuData = examples.filter(
+      (x) => x.name && (x.visible !== undefined ? x.visible : true)
+    )
     const current = ref(0)
 
     if (menuData.length) {
@@ -45,7 +46,6 @@ export default {
     }
   }
 }
-
 </script>
 <style scoped lang="scss">
 @import "~/common/var/index.scss";
@@ -95,7 +95,6 @@ export default {
 }
 
 .components {
-
   & + & {
     margin-left: 10px;
   }

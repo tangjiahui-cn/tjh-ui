@@ -1,7 +1,7 @@
 <template>
   <div class="pages">
     <div class="pages-head">{{ title }}</div>
-<!--    <div class="line"/>-->
+    <!--    <div class="line"/>-->
     <div class="pages-body">
       <slot></slot>
     </div>

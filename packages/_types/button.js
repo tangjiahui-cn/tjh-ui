@@ -1,7 +1,7 @@
 export const props = {
   type: {
     type: String,
-    default: "default"  // 可选 default、primary、dashed、text
+    default: "default" // 可选 default、primary、dashed、text
   },
   value: {
     type: String,
@@ -9,7 +9,7 @@ export const props = {
   },
   size: {
     type: String,
-    default: "default"  // 可选 default 、 small 、large
+    default: "default" // 可选 default 、 small 、large
   },
   disabled: {
     type: Boolean,

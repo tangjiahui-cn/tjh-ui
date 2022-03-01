@@ -8,15 +8,17 @@
       block ? 't-button-block' : '',
       loading ? 't-button-loading' : ''
     ]"
-    @focusin="focus = true;"
-    @focusout="focus = false;"
+    @focusin="focus = true"
+    @focusout="focus = false"
   >
     <span
       v-if="loading"
       :class="[
         'loading-circle',
         `loading-circle-size-${size}`,
-        `loading-circle-type-${type}${danger ? '-danger' : ''}${focus ? '-focus' : ''}`
+        `loading-circle-type-${type}${danger ? '-danger' : ''}${
+          focus ? '-focus' : ''
+        }`
       ]"
     />
     <span>

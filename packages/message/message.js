@@ -82,4 +82,3 @@ function loading (content, duration, onClose) {
     onClose
   })
 }
-
