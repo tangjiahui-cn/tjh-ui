@@ -13,19 +13,19 @@ export default defineComponent({
   name: "TSpace",
   props,
   emits,
-  setup(props, {slots}) {
+  setup (props, {slots}) {
     const that = useThis()
     const wrapperEls = ref([])
 
     watch(() => props.size, () => updateEls(props.size))
 
-    function updateEls(size = 8) {
+    function updateEls (size = 8) {
       wrapperEls.value.forEach(el => {
         el.update && el.update(size)
       })
     }
 
-    function wrapper(el) {
+    function wrapper (el) {
       const div = document.createElement("div")
       div.appendChild(el)
       div.className = "t-space-item"
@@ -45,7 +45,7 @@ export default defineComponent({
       return div
     }
 
-    function renderEls(current, els) {
+    function renderEls (current, els) {
       const list = []
       els.forEach(el => {
         const wrapperEl = wrapper(el)

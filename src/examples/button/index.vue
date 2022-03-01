@@ -96,10 +96,10 @@ import Page from "../../components/Page/index.vue"
 export default defineComponent({
   name: "index",
   components: {Block, Page},
-  setup() {
+  setup () {
     const loading = ref(false)
 
-    function clickLoading() {
+    function clickLoading () {
       if (!loading.value) {
         loading.value = true
         setTimeout(() => {

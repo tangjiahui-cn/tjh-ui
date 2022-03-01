@@ -33,7 +33,7 @@ import Page from "../../components/Page/index.vue"
 export default defineComponent({
   name: "index",
   components: {Block, Page},
-  setup() {
+  setup () {
     const size = ref(8)
     const size2 = ref(8)
 

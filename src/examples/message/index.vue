@@ -39,7 +39,7 @@ import useThis from "../../../packages/_hooks/useThis"
 export default defineComponent({
   name: "index",
   components: {Block, Page},
-  setup() {
+  setup () {
     const that = useThis()
     const duration = ref(3)
 

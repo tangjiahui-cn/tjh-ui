@@ -5,10 +5,10 @@ let checked = false
  *
  * 注意：需要在打包配置中启用: external:["vue"]
  */
-export default function fixCE() {
+export default function fixCE () {
   return {
     name: "alias",
-    transform(code, path) {
+    transform (code, path) {
       let _code = code
       if (path.endsWith("tsx")) {
         check()
@@ -21,7 +21,7 @@ export default function fixCE() {
 }
 
 // 校验 是否启用了 external:["vue"]。如果无，则报错。
-function check() {
+function check () {
   if (!checked) {
     if (Array.isArray(rollupConfig)) {
       for (let i = 0; i < rollupConfig.length; i++) {
@@ -41,7 +41,7 @@ function check() {
 }
 
 // 开头增加 const h = createVNode;
-function addH(code) {
+function addH (code) {
   let _code = code
   const isCreateVNode = /import {(.*)createVNode(.*)} from ['"]vue['"]/.test(
     code
@@ -54,7 +54,7 @@ function addH(code) {
 }
 
 // 将setup函数转为箭头函数
-function setupToArray(code) {
+function setupToArray (code) {
   let _code = code
   const hReg = /const h = createVNode;/
   const objectFunctionReg = /setup[.!:]*\((.*)\).*{/

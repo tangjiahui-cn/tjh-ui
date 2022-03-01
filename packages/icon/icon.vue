@@ -15,7 +15,7 @@ export default defineComponent({
   name: "TIcon",
   props,
   emits,
-  setup() {
+  setup () {
   }
 })
 </script>

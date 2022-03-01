@@ -3,10 +3,10 @@
  *
  * tips: 解决@rollup/plugin-alias解析css中别名失败的问题
  */
-export default function alias(alias) {
+export default function alias (alias) {
   return {
     name: "alias",
-    transform(code) {
+    transform (code) {
       const lineReg = /import(.*)(('.*')|(".*"))/g
       const pathReg = /('(.*)'|"(.*)")/
       const lineArray = code.match(lineReg)

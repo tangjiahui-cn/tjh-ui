@@ -23,7 +23,7 @@ import {useRouter} from "vue-router"
 import examples from "./router/examples"
 
 export default {
-  setup() {
+  setup () {
     const router = useRouter()
     const menuData = examples.filter(x => x.name && (x.visible !== undefined ? x.visible : true))
     const current = ref(0)
@@ -33,7 +33,7 @@ export default {
       router.push(menuData[0].path)
     }
 
-    function clickMenu(item) {
+    function clickMenu (item) {
       current.value = item.path
       router.push(item.path)
     }

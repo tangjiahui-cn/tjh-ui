@@ -35,10 +35,10 @@ import Page from "../../components/Page/index.vue"
 export default defineComponent({
   name: "index",
   components: {Block, Page},
-  setup() {
+  setup () {
     const value = ref("default")
 
-    function handleChange(e) {
+    function handleChange (e) {
       value.value = e.target.value
     }
 

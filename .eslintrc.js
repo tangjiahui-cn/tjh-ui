@@ -35,7 +35,7 @@ module.exports = {
       "error",
       {
         anonymous: "always",
-        named: "never",
+        named: "always",
         asyncArrow: "always"
       }
     ], // 函数名后必须接空格

@@ -35,7 +35,7 @@ export default defineComponent({
   name: "TButton",
   props,
   emits,
-  setup() {
+  setup () {
     const focus = ref(false)
     return {
       focus

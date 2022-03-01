@@ -22,11 +22,11 @@ import {defineComponent, ref} from "vue"
 export default defineComponent({
   name: "message",
   components: {TIcon},
-  setup() {
+  setup () {
     const mid = ref(0)
     const list = ref([])
 
-    function push(options) {
+    function push (options) {
       const id = mid.value ++
       const {
         type = "",

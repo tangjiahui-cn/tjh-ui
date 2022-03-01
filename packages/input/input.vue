@@ -28,7 +28,7 @@ export default defineComponent({
   name: "TInput",
   props,
   emits,
-  setup(props, {emit}) {
+  setup (props, {emit}) {
     const inputRef = ref()
     const inputValue = ref(props.value || props.defaultValue || "")
 
@@ -44,7 +44,7 @@ export default defineComponent({
       }
     })
 
-    function handleInput(e) {
+    function handleInput (e) {
       Object.defineProperty(e, "target", { writable: true })
       e.target = inputRef.value.cloneNode(true)
 
@@ -54,7 +54,7 @@ export default defineComponent({
       emit("change", e)
     }
 
-    function handleClear(e) {
+    function handleClear (e) {
       Object.defineProperty(e, "target", { writable: true })
       e.target = inputRef.value.cloneNode(true)
       e.target.value = ""
