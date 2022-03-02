@@ -26,11 +26,6 @@ import {defineComponent, ref} from "vue"
 export default defineComponent({
   name: "message",
   components: {TIcon},
-  data () {
-    return {
-      name: '1'
-    }
-  },
   setup () {
     const mid = ref(0)
     const list = ref([])

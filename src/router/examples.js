@@ -1,8 +1,8 @@
 const list = [
-  // "button",
-  // "icon",
-  // "input",
-  // "space",
+  "button",
+  "icon",
+  "input",
+  "space",
   "message"
 ]
 

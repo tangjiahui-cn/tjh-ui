@@ -9,19 +9,22 @@
     </Block>
     <Block v-if=true title="2、可清空(allowClear)">
       <t-space>
-        <!--      <div>{{value}}</div>-->
         <t-input allowClear size="large" placeholder="large" style="width: 200px;"/>
-        <t-input allowClear style="width: 200px;" :value="value"/>
-        <!--      <t-input allowClear style="width: 200px;" :value="value" @change="handleChange"/>-->
-        <!--      <t-input v-if="true" allowClear style="width: 200px;" v-model="value"/>-->
-        <t-input allowClear size="small" value="small" style="width: 200px;"/>
+        <t-input allowClear style="width: 200px;" :value="value" @change="handleChange"/>
+        <t-input allowClear size="small" value="固定value值" style="width: 200px;" />
       </t-space>
     </Block>
     <Block v-if="true" title="3、禁用(disabled)">
       <t-space>
-        <t-input disabled allowClear size="large" placeholder="large" style="width: 200px;" value="1"/>
+        <t-input disabled allowClear size="large" placeholder="large" style="width: 200px;" value="large"/>
         <t-input disabled allowClear value="default" style="width: 200px;"/>
         <t-input disabled allowClear size="small" value="small" style="width: 200px;"/>
+      </t-space>
+    </Block>
+    <Block v-if="true" title="4、双向绑定(v-model)">
+      <t-space>
+        <t-input allowClear size="large" placeholder="large" style="width: 200px;" v-model="value"/>
+        <div>{{ value }}</div>
       </t-space>
     </Block>
   </Page>
@@ -36,7 +39,7 @@ export default defineComponent({
   name: "index",
   components: {Block, Page},
   setup () {
-    const value = ref("default")
+    const value = ref(":value=value")
 
     function handleChange (e) {
       value.value = e.target.value

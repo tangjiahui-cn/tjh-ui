@@ -30,43 +30,63 @@ export default defineComponent({
   emits,
   setup (props, {emit}) {
     const inputRef = ref()
-    const inputValue = ref(props.value || props.defaultValue || "")
-
-    const isValue = computed(() => props.value !== undefined)
-    const showClear = computed(() => {
-      return !props.disabled && props.allowClear && inputValue.value
-    })
+    const inputValue = ref(
+      props.modelValue || props.value || props.defaultValue || ""
+    )
+    const showClear = computed(
+      () => !props.disabled && props.allowClear && inputValue.value
+    )
 
     watch(
-      () => props.value,
-      () => {
-        if (props.value !== undefined) {
-          inputRef.value.value = props.value
-          inputValue.value = props.value
+      () => [props.modelValue, props.value],
+      ([modelValue, value]) => {
+        if (modelValue !== undefined) {
+          inputValue.value = modelValue
+          inputRef.value.value = modelValue
+        } else if (value !== undefined) {
+          inputValue.value = value
+          inputRef.value.value = value
         }
       }
     )
 
-    function handleInput (e) {
+    function changeEventNodeTarget (e, newValue) {
       Object.defineProperty(e, "target", {writable: true})
       e.target = inputRef.value.cloneNode(true)
+      e.target.value = newValue
+    }
 
-      const value = isValue.value ? props.value : e.target.value
-      inputRef.value.value = value
-      inputValue.value = value
+    function handleInput (e) {
+      const value = e.target.value
+
+      if (props.modelValue !== undefined) {
+        inputValue.value = value
+        emit("update:modelValue", e.target.value)
+      } else if (props.value !== undefined) {
+        inputRef.value.value = inputValue.value
+        changeEventNodeTarget(e, value)
+      } else {
+        inputValue.value = value
+      }
+
       emit("change", e)
+      emit("input", e)
     }
 
     function handleClear (e) {
-      Object.defineProperty(e, "target", {writable: true})
-      e.target = inputRef.value.cloneNode(true)
-      e.target.value = ""
+      changeEventNodeTarget(e, "")
 
-      if (!isValue.value) {
-        inputRef.value.value = ""
+      if (props.modelValue !== undefined) {
         inputValue.value = ""
+        inputRef.value.value = ""
+        emit("update:modelValue", "")
+      } else if (props.value === undefined) {
+        inputValue.value = ""
+        inputRef.value.value = ""
       }
+
       emit("change", e)
+      emit("input", e)
     }
 
     onMounted(() => {
@@ -76,8 +96,8 @@ export default defineComponent({
     return {
       showClear,
       inputRef,
-      handleInput,
-      handleClear
+      handleClear,
+      handleInput
     }
   }
 })

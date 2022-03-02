@@ -22,7 +22,11 @@ export const props = {
   disabled: {
     type: Boolean,
     default: false
+  },
+  modelValue: {
+    type: [String, undefined],
+    default: undefined
   }
 }
 
-export const emits = ["change"]
+export const emits = ["change", "input", "update:modelValue"]
