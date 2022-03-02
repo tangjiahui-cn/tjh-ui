@@ -2,13 +2,14 @@ import {name} from "../package.json"
 import {DEFAULT_EXTENSIONS} from "@babel/core"
 import json from "@rollup/plugin-json"
 import babel from "@rollup/plugin-babel"
-import vuePlugin from "rollup-plugin-vue"
+import vuePlugin from "@vitejs/plugin-vue"
+// import vuePlugin from "rollup-plugin-vue"
 import postcss from "rollup-plugin-postcss"
 import {terser} from "rollup-plugin-terser"
 import resolve from "@rollup/plugin-node-resolve"
 import aliasResolve from "./plugins/rollup-plugin-alias"
 // import fixTsxJest from "./plugins/rollup-plugins-vue3-fix-tsx-jest"
-import typescript from "rollup-plugin-typescript2"
+// import typescript from "rollup-plugin-typescript2"
 const alias = require("./alias")
 const getPackagesInfo = require("./utils/getPackagesInfo")
 
@@ -37,9 +38,9 @@ export default packagesInfo.map(({name: packageName}) => {
       }
     })),
     plugins: [
-      typescript({
-        module: "ESNext"
-      }),
+      // typescript({
+      //   module: "ESNext"
+      // }),
       resolve(),
       aliasResolve(alias),
       // fixTsxJest(),
