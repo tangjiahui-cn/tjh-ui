@@ -9,4 +9,5 @@
 | defaultValue | 输入框默认值 | String | "" | 无
 | allowClear | 是否可以清空 | Boolean | false | true 、false
 | disabled | 是否禁用 | Boolean | false | true 、false
+| v-model | 双向绑定 | 无 | 无 | 无
 
