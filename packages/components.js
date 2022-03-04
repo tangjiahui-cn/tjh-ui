@@ -13,12 +13,16 @@ export {Space}
 import Message from "./message/index"
 export {Message}
 
+import Layout from "./layout/index"
+export {Layout}
+
 const components = {
   Button,
   Input,
   Icon,
   Space,
-  Message
+  Message,
+  Layout
 }
 
 export default components
