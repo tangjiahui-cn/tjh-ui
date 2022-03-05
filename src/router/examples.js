@@ -1,9 +1,9 @@
 const list = [
-  // "button",
-  // "icon",
-  // "input",
-  // "space",
-  // "message",
+  "button",
+  "icon",
+  "input",
+  "space",
+  "message",
   "layout"
 ]
 
