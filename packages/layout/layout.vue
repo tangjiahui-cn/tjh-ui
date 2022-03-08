@@ -1,24 +1,35 @@
 <template>
-  <div :style="containerStyle">
-    <div style="flex: 0 0 48px;background: blue;" />
-    <div style="flex: 1;display: flex;">
-      <div style="flex: 0 0 48px;background: #67a5ec;"/>
-      <div style="flex: 1;background: #c1d7f1;"/>
-    </div>
+  <div class="t-layout" ref="tLayout">
+    <slot></slot>
   </div>
 </template>
 
 <script>
-import {defineComponent} from "vue"
+import {defineComponent, onMounted, ref} from "vue"
 import {props, emits} from "../_types/layout"
 
 export default defineComponent({
   name: "TLayout",
   props,
   emits,
-  setup () {}
+  setup (props, {slots}) {
+    const tLayout = ref(null)
+
+    onMounted(() => {
+      const slotsIns = slots.default()
+      const current = tLayout.value
+      if (slotsIns.map((x) => x.type.name).includes("TLayoutSlider")) {
+        current.style.flexDirection = "row"
+      }
+    })
+
+    return {
+      tLayout
+    }
+  }
 })
 </script>
 
 <style lang="scss">
+@import "../_styles/layout.scss";
 </style>
