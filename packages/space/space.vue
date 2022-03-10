@@ -23,35 +23,39 @@ export default defineComponent({
     )
 
     function updateEls (size = 8) {
-      wrapperEls.value.forEach((el) => {
-        el.update && el.update(size)
+      const lastIndex = wrapperEls.value.length - 1
+      wrapperEls.value.forEach((el, index) => {
+        el.update && el.update(size, index === lastIndex)
       })
     }
 
-    function wrapper (el) {
+    function wrapper (el, isLast) {
       const div = document.createElement("div")
       div.appendChild(el)
       div.className = "t-space-item"
 
       if (props.direction === "row") {
-        div.update = function (size) {
+        div.update = function (size, isLast) {
+          if (isLast) return
           div.style.marginRight = `${size}px`
         }
       } else if (props.direction === "column") {
-        div.update = function (size) {
+        div.update = function (size, isLast) {
           div.style.width = "100%"
+          if (isLast) return
           div.style.marginBottom = `${size}px`
         }
       }
 
-      div.update && div.update(props.size)
+      div.update && div.update(props.size, isLast)
       return div
     }
 
     function renderEls (current, els) {
       const list = []
-      els.forEach((el) => {
-        const wrapperEl = wrapper(el)
+      const lastIndex = els.length - 1
+      els.forEach((el, index) => {
+        const wrapperEl = wrapper(el, index === lastIndex)
         list.push(wrapperEl)
         current.appendChild(wrapperEl)
       })
