@@ -1,11 +1,9 @@
 <template>
-  <div class="t-space">
-    <slot />
-  </div>
+  <div class="t-space" />
 </template>
 
 <script>
-import {defineComponent, onMounted, ref, watch} from "vue"
+import {createVNode, defineComponent, onMounted, ref, watch, render} from "vue"
 import {props, emits} from "../_types/space"
 import useThis from "../_hooks/useThis"
 
@@ -29,9 +27,8 @@ export default defineComponent({
       })
     }
 
-    function wrapper (el, isLast) {
+    function createWrapper (isLast) {
       const div = document.createElement("div")
-      div.appendChild(el)
       div.className = "t-space-item"
 
       if (props.direction === "row") {
@@ -51,32 +48,22 @@ export default defineComponent({
       return div
     }
 
-    function renderEls (current, els) {
-      const list = []
-      const lastIndex = els.length - 1
-      els.forEach((el, index) => {
-        const wrapperEl = wrapper(el, index === lastIndex)
-        list.push(wrapperEl)
-        current.appendChild(wrapperEl)
-      })
-      wrapperEls.value = list
-    }
-
     onMounted(() => {
-      let len = slots.default().length
-      let els = []
-      const current = that.$el
-      const {children} = current
+      const wrapperList = []
+      const slotDefault = slots.default()
+      const container = document.createElement("div")
 
-      while (len-- > 0) {
-        const el = children[0]
-        if (el) {
-          els.push(el)
-          current.removeChild(el)
-        }
-      }
+      slotDefault.forEach((slot, ind) => {
+        const wrapper = createWrapper(ind === slotDefault.length - 1)
+        const slotVNode = createVNode("div", null, [slot])
 
-      renderEls(current, els)
+        wrapperList.push(wrapper)
+        render(slotVNode, wrapper)
+        container.appendChild(wrapper)
+      })
+
+      wrapperEls.value = wrapperList
+      that.$el.appendChild(container)
     })
   }
 })
