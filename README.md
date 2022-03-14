@@ -29,10 +29,13 @@
 #### 3、组件库
 | 英文名 | 中文名 | 是否完成 | 阶段 |
 |  ----  |  ----  | ----  | ----  |
-| Button | 按钮 | 是 | 测试阶段 |
-| Input | 输入框 | 是 | 测试阶段 |
-| Icon | 图标 | 是 | 测试阶段 |
-| Space | 间距 | 是 | 测试阶段 |
-| Message | 消息 | 是 | 测试阶段 |
-| Layout | 布局 | 是 | 测试阶段 |
-| Select | 下拉框 | 否 | 开发阶段 |
+| Button | 按钮 | Y | TEST |
+| Input | 输入框 | Y | TEST |
+| Icon | 图标 | Y | TEST |
+| Space | 间距 | Y | TEST |
+| Message | 消息 | Y | TEST |
+| Layout | 布局 | Y | TEST |
+| Select | 下拉框 | N | - |
+| CheckBox | 多选框 | N | - |
+| Radio | 单选按钮 | N | - |
+| Progress | 进度条 | N | - |
