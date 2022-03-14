@@ -51,10 +51,11 @@ export default defineComponent({
     onMounted(() => {
       const wrapperList = []
       const slotDefault = slots.default()
+      const lastIndex = slotDefault.length - 1
       const container = document.createElement("div")
 
       slotDefault.forEach((slot, ind) => {
-        const wrapper = createWrapper(ind === slotDefault.length - 1)
+        const wrapper = createWrapper(ind === lastIndex)
         const slotVNode = createVNode("div", null, [slot])
 
         wrapperList.push(wrapper)
