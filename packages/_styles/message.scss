@@ -23,15 +23,12 @@
   animation: appear 0.2s;
 
   &-body {
+    @include shade;
     padding: 16px 20px;
     background: white;
     text-align: center;
     pointer-events: all;
     display: inline-block;
-
-    box-shadow: -1px 1px 19px 1px rgba(154, 153, 153, 0.35);
-    -webkit-box-shadow: -1px 1px 19px 1px rgba(154, 153, 153, 0.35);
-    -moz-box-shadow: -1px 1px 19px 1px rgba(154, 153, 153, 0.35);
 
     &-icon {
       @mixin icon {
