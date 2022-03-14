@@ -13,7 +13,7 @@ import aliasResolve from "./plugins/rollup-plugin-alias"
 const alias = require("./alias")
 const getPackagesInfo = require("./utils/getPackagesInfo")
 
-const packagesInfo = [{name: ""}, ...getPackagesInfo()]
+const packagesInfo = [...getPackagesInfo(), {name: ""}]
 
 export const getInput = (packageName) =>
   packageName ? `packages/${packageName}/index.js` : "packages/index.js"
