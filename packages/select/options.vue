@@ -1,7 +1,5 @@
 <template>
-  <div class="t-select-option">
-    <slot />
-  </div>
+  <slot />
 </template>
 
 <script>

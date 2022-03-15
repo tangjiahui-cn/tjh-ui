@@ -4,14 +4,29 @@
       <t-space :size="size">
         <t-select>
           <t-select-option>1</t-select-option>
-          <t-select-option>2</t-select-option>
-          <t-select-option>3</t-select-option>
+          <t-select-option disabled>2</t-select-option>
+          <t-select-option disabled>3</t-select-option>
+          <t-select-option>4</t-select-option>
+          <t-select-option>5</t-select-option>
         </t-select>
 
         <t-select placeholder="请选择（默认展开）" :defaultVisible="true">
           <t-select-option>1</t-select-option>
           <t-select-option>2</t-select-option>
           <t-select-option>3</t-select-option>
+          <t-select-option>4</t-select-option>
+          <t-select-option>5</t-select-option>
+          <t-select-option>6</t-select-option>
+          <t-select-option>7</t-select-option>
+          <t-select-option>8</t-select-option>
+          <t-select-option>9</t-select-option>
+          <t-select-option>10</t-select-option>
+          <t-select-option>11</t-select-option>
+          <t-select-option>12</t-select-option>
+          <t-select-option>13</t-select-option>
+          <t-select-option>14</t-select-option>
+          <t-select-option>15</t-select-option>
+          <t-select-option>16</t-select-option>
         </t-select>
       </t-space>
     </Block>

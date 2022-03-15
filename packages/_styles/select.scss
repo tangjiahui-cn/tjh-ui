@@ -5,7 +5,6 @@
   position: relative;
 
   &-head {
-    color: $colorLite;
     font-size: 14px;
     height: $height;
     cursor: pointer;
@@ -19,6 +18,11 @@
     text-overflow: ellipsis;
     border: 1px solid $border;
     border-radius: $borderRadius;
+
+    &-placeholder {
+      @extend .t-select-head;
+      color: $colorLite;
+    }
   }
 
   &-body {
@@ -26,6 +30,8 @@
     position: absolute;
     padding: 2px 0px;
     box-sizing: border-box;
+    max-height: 256px;
+    overflow: auto;
   }
 }
 
@@ -34,6 +40,36 @@
   user-select: none;
   padding: 4px 12px;
   transition: all $delayFast;
+
+  &-choose {
+    @extend .t-select-option;
+    background-color: whitesmoke;
+
+    &-disabled {
+      color: $colorDisabled;
+      cursor: not-allowed;
+      user-select: none;
+      padding: 4px 12px;
+      transition: all $delayFast;
+      background-color: #f8f8f8;
+
+      &:first-child {
+        margin-top: 2px;
+      }
+    }
+  }
+
+  &-disabled {
+    color: $colorDisabled;
+    cursor: not-allowed;
+    user-select: none;
+    padding: 4px 12px;
+    transition: all $delayFast;
+
+    &:first-child {
+      margin-top: 2px;
+    }
+  }
 
   &:hover {
     background-color: $primaryVeryLite;

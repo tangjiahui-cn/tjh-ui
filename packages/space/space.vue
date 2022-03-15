@@ -55,12 +55,12 @@ export default defineComponent({
       const container = document.createElement("div")
 
       slotDefault.forEach((slot, ind) => {
-        const wrapper = createWrapper(ind === lastIndex)
-        const slotVNode = createVNode("div", null, [slot])
-
-        wrapperList.push(wrapper)
-        render(slotVNode, wrapper)
-        container.appendChild(wrapper)
+        if (typeof slot.type !== "symbol") {
+          const wrapper = createWrapper(ind === lastIndex)
+          wrapperList.push(wrapper)
+          render(slot, wrapper)
+          container.appendChild(wrapper)
+        }
       })
 
       wrapperEls.value = wrapperList
