@@ -1,9 +1,10 @@
 <template>
-  <div class="t-select" tabindex="0" hidefocus @blur="closeBody()">
+  <div class="t-select">
     <div
+      ref="headDom"
       :class="`t-select-head${currentValue ? '' : '-placeholder'}`"
       :style="{width}"
-      @click="() => (isExpand = !isExpand)"
+      @click="isExpand = true"
     >
       {{ currentValue || placeholder }}
     </div>
@@ -14,6 +15,7 @@
 import {defineComponent, onMounted, ref, render, watch} from "vue"
 import {props, emits} from "../_types/select"
 import useThis from "../_hooks/useThis"
+import useElementPosition from "../_hooks/useElementPosition"
 
 export default defineComponent({
   name: "TSelect",
@@ -23,20 +25,25 @@ export default defineComponent({
     const that = useThis()
     const bodyDom = ref(undefined)
     const isExpand = ref(false)
+    const headDom = ref(undefined)
     const currentValue = ref(undefined)
 
     watch(isExpand, () => {
       if (!bodyDom.value) return
       if (isExpand.value) {
-        that.$el.appendChild(bodyDom.value)
+        const {x, y, height, width} = useElementPosition(that.$el)
+        bodyDom.value.style.background = `white`
+        bodyDom.value.style.left = `${x}px`
+        bodyDom.value.style.top = `${y + height}px`
+        bodyDom.value.style.width = `${width}px`
+        document.body.appendChild(bodyDom.value)
+        bodyDom.value.focus()
+        that.$refs.headDom.style.pointerEvents = "none"
       } else {
-        that.$el.removeChild(bodyDom.value)
+        document.body.removeChild(bodyDom.value)
+        that.$refs.headDom.style.pointerEvents = "auto"
       }
     })
-
-    function closeBody () {
-      if (isExpand.value) isExpand.value = false
-    }
 
     function onSelect (item) {
       currentValue.value = item.el.wholeText
@@ -55,48 +62,55 @@ export default defineComponent({
               : "t-select-option"
         }
       }
+
       isExpand.value && (isExpand.value = false)
     }
 
+    function createOption (slot) {
+      const option = document.createElement("div")
+      render(slot, option)
+
+      const disabled =
+        slot.props && (slot.props.disabled || slot.props.disabled === "")
+      let className =
+        currentValue.value === slot.el.wholeText
+          ? "t-select-option-choose"
+          : "t-select-option"
+
+      if (disabled) {
+        className += "-disabled"
+      } else {
+        option.addEventListener("click", () => onSelect(slot))
+      }
+
+      option.className = className
+    }
+
     onMounted(() => {
-      const slotsDefault = slots.default()
+      const slotsDefault = slots.default() || []
       const div = document.createElement("div")
 
       slotsDefault.forEach((slot) => {
         if (slot.type && slot.type.name === "TSelectOption") {
-          const option = document.createElement("div")
-          render(slot, option)
-
-          const disabled =
-            slot.props && (slot.props.disabled || slot.props.disabled === "")
-          let className =
-            currentValue.value === slot.el.wholeText
-              ? "t-select-option-choose"
-              : "t-select-option"
-
-          if (disabled) {
-            className += "-disabled"
-          } else {
-            option.addEventListener("click", () => onSelect(slot))
-          }
-
-          option.className = className
-          div.appendChild(option)
+          div.appendChild(createOption(slot))
         }
       })
 
+      if (slotsDefault.length < 1) div.style.minHeight = "128px"
       div.className = "t-select-body"
       div.style.width = props.width
-      if (slotsDefault.length < 1) div.style.minHeight = "128px"
-      bodyDom.value = div
+      div.setAttribute("tabindex", "0")
+      div.addEventListener("focus", () => isExpand.value = true)
+      div.addEventListener("blur", () => isExpand.value = false)
 
+      bodyDom.value = div
       isExpand.value = props.defaultVisible
     })
 
     return {
       isExpand,
-      closeBody,
-      currentValue
+      currentValue,
+      headDom
     }
   }
 })

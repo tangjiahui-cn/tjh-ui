@@ -27,11 +27,15 @@
 
   &-body {
     @include shade;
-    position: absolute;
+    position: fixed;
     padding: 2px 0px;
     box-sizing: border-box;
     max-height: 256px;
     overflow: auto;
+
+    &:focus {
+      outline: none;
+    }
   }
 }
 

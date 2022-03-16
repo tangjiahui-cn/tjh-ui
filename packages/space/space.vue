@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import {createVNode, defineComponent, onMounted, ref, watch, render} from "vue"
+import {defineComponent, onMounted, ref, watch, render} from "vue"
 import {props, emits} from "../_types/space"
 import useThis from "../_hooks/useThis"
 

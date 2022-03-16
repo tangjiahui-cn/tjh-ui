@@ -1,10 +1,10 @@
 const list = [
-  "button",
-  "icon",
-  "input",
-  "space",
-  "message",
-  "layout",
+  // "button",
+  // "icon",
+  // "input",
+  // "space",
+  // "message",
+  // "layout",
   "select"
 ]
 
