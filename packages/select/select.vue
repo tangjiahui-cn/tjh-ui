@@ -84,6 +84,7 @@ export default defineComponent({
       }
 
       option.className = className
+      return option
     }
 
     onMounted(() => {
