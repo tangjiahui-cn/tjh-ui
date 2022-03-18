@@ -31,7 +31,7 @@ export default defineComponent({
     watch(isExpand, () => {
       if (!bodyDom.value) return
       if (isExpand.value) {
-        const {x, y, height, width} = useElementPosition(that.$el)
+        const {x, y, clientHeight: height, clientWidth: width} = useElementPosition(that.$el)
         bodyDom.value.style.background = `white`
         bodyDom.value.style.left = `${x}px`
         bodyDom.value.style.top = `${y + height}px`
@@ -101,7 +101,6 @@ export default defineComponent({
       div.className = "t-select-body"
       div.style.width = props.width
       div.setAttribute("tabindex", "0")
-      div.addEventListener("focus", () => isExpand.value = true)
       div.addEventListener("blur", () => isExpand.value = false)
 
       bodyDom.value = div

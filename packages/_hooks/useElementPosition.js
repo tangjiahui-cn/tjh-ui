@@ -7,12 +7,11 @@
  * By TangJiaHui
  */
 export default function useElementPosition (element) {
+  const {offsetWidth, offsetHeight, clientWidth, clientHeight} = element
   const x = getWindowPos(element, "offsetLeft")
   const y = getWindowPos(element, "offsetTop")
-  const width = element.clientWidth
-  const height = element.clientHeight
 
-  return {x, y, width, height}
+  return {x, y, offsetWidth, offsetHeight, clientWidth, clientHeight}
 }
 
 function getWindowPos (element, offsetType) {
