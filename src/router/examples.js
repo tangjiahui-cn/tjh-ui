@@ -5,7 +5,8 @@ const list = [
   "space",
   "message",
   "layout",
-  "select"
+  "select",
+  "checkbox"
 ]
 
 export default list.map(name => ({

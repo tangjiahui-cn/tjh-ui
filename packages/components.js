@@ -19,6 +19,9 @@ export {Layout}
 import Select from "./select/index"
 export {Select}
 
+import CheckBox from "./checkbox/index"
+export {CheckBox}
+
 const components = {
   Button,
   Input,
@@ -26,7 +29,8 @@ const components = {
   Space,
   Message,
   Layout,
-  Select
+  Select,
+  CheckBox
 }
 
 export default components
