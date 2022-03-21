@@ -1,9 +1,13 @@
 export const props = {
-  checked: {
+  label: {
+    type: String,
+    default: ""
+  },
+  value: {
     type: [Boolean, undefined],
     default: undefined
   },
-  defaultChecked: {
+  defaultValue: {
     type: [Boolean, undefined],
     default: undefined
   },
@@ -14,7 +18,11 @@ export const props = {
   indeterminate: {
     type: Boolean,
     default: false
+  },
+  modelValue: {
+    type: [Boolean, undefined],
+    default: undefined
   }
 }
 
-export const emits = ["change"]
+export const emits = ["change", "update:modelValue"]
